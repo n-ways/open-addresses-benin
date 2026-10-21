@@ -1,0 +1,30 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=9cm, axis equal image, xmin=0.7, xmax=3.95, ymin=6.0, ymax=12.5,
+  xtick={1,2,3}, ytick={7,8,...,12},
+  xticklabel={$\pgfmathprintnumber{\tick}^\circ$E}, yticklabel={$\pgfmathprintnumber{\tick}^\circ$N},
+  axis on top, xtick pos=bottom, ytick pos=left, clip=true, unbounded coords=jump,
+  legend style={at={(1.03,0.02)}, anchor=south west, font=\footnotesize, draw=none, cells={anchor=west}},
+  legend cell align=left]
+  \addplot[fill=green!8, draw=white, line width=0.3pt, area legend] table {communes-c1.dat};
+  \addlegendentry{$<25$}
+  \addplot[fill=green!25, draw=white, line width=0.3pt, area legend] table {communes-c2.dat};
+  \addlegendentry{$25$--$50$}
+  \addplot[fill=green!45, draw=white, line width=0.3pt, area legend] table {communes-c3.dat};
+  \addlegendentry{$50$--$100$}
+  \addplot[fill=green!70, draw=white, line width=0.3pt, area legend] table {communes-c4.dat};
+  \addlegendentry{$100$--$500$}
+  \addplot[fill=green!70!black, draw=white, line width=0.3pt, area legend] table {communes-c5.dat};
+  \addlegendentry{$\geq 500$}
+  \addlegendimage{empty legend}
+  \addlegendentry{\hspace{-6mm}\T{compounds per km$^2$}{concessions par km$^2$}}
+  \addplot[only marks, mark=*, mark size=1.2pt, red, forget plot] table[x=lon,y=lat] {towns.dat};
+  \addplot[only marks, mark=none, nodes near coords={\pgfplotspointmeta}, point meta=explicit symbolic, forget plot,
+    visualization depends on={value \thisrow{anchor} \as \labelanchor},
+    every node near coord/.style={anchor=\labelanchor, inner sep=2pt, font=\scriptsize}]
+    table[x=lon,y=lat,meta=name] {towns.dat};
+\end{axis}
+\end{tikzpicture}
+\end{document}

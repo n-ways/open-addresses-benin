@@ -1,0 +1,1430 @@
+{
+ "built": "2026-10-20",
+ "note": "From the codes issued on 20 October 2026 (tools/issue_registry.py) and N-Ways map data.",
+ "rules": {
+  "urban": {
+   "annex_m2": 30.0,
+   "attach_m": 6.0,
+   "hut_m2": 0.0
+  },
+  "ruralNorth": {
+   "annex_m2": 30.0,
+   "attach_m": 6.0,
+   "hut_m2": 40.0,
+   "hut_gap_m": 3.0,
+   "hut_max": 25
+  }
+ },
+ "country": {
+  "compounds": 4147741,
+  "structures": 5174482,
+  "fromOpenStreetMap": 1040021,
+  "structuresPerCompound": 1.248,
+  "shareStructuresInMultiStructureCompounds": 0.356,
+  "compoundSizeMix": {
+   "1": 3330078,
+   "2": 654982,
+   "3": 129395,
+   "4": 25058,
+   "5": 5691,
+   "6": 1574,
+   "7+": 963
+  },
+  "rules": {
+   "single": 3329544,
+   "annex": 739537,
+   "hut-cluster": 76949,
+   "enclosure": 1711
+  },
+  "coverage": {
+   "nways": 4147741
+  },
+  "useTop": {
+   "residential": 5152555,
+   "annex": 6651,
+   "commercial": 6413,
+   "education": 2960,
+   "under_construction": 1182,
+   "health": 1055,
+   "office": 1054,
+   "religious": 1010,
+   "hospitality": 734,
+   "industrial": 523,
+   "government": 137,
+   "ruin": 114,
+   "transport": 67,
+   "mixed": 18,
+   "agricultural": 9
+  },
+  "useDetail": {
+   "residential": 5152555,
+   "annex": 6651,
+   "commercial": 6413,
+   "education": 2960,
+   "under_construction": 1182,
+   "health": 1055,
+   "office": 1054,
+   "religious": 1010,
+   "hospitality": 734,
+   "industrial": 523,
+   "government": 137,
+   "ruin": 114,
+   "transport": 67,
+   "mixed": 18,
+   "agricultural": 9
+  },
+  "floorsFrom": {
+   "none": 5170514,
+   "osm:building:levels": 3891,
+   "osm:height": 77
+  },
+  "floors": {
+   "1": 3888,
+   "2": 45,
+   "3": 25,
+   "4": 10
+  },
+  "compoundsByDigits": {
+   "4": 3241198,
+   "5": 906543
+  },
+  "annexCompounds": 739537,
+  "footprintAreaM2": {
+   "p10": 16.6,
+   "p25": 25.7,
+   "p50": 45.3,
+   "p75": 82.0,
+   "p90": 139.0
+  }
+ },
+ "cotonou": {
+  "compounds": 104101,
+  "structures": 127468,
+  "fromOpenStreetMap": 42786,
+  "structuresPerCompound": 1.224,
+  "shareStructuresInMultiStructureCompounds": 0.333,
+  "compoundSizeMix": {
+   "1": 85063,
+   "2": 15588,
+   "3": 2812,
+   "4": 500,
+   "5": 92,
+   "6": 23,
+   "7+": 23
+  },
+  "rules": {
+   "single": 85037,
+   "annex": 18967,
+   "enclosure": 97
+  },
+  "coverage": {
+   "nways": 104101
+  },
+  "useTop": {
+   "residential": 124092,
+   "commercial": 1687,
+   "office": 476,
+   "education": 308,
+   "annex": 248,
+   "health": 229,
+   "hospitality": 183,
+   "religious": 123,
+   "industrial": 49,
+   "transport": 37,
+   "government": 21,
+   "under_construction": 8,
+   "ruin": 6,
+   "mixed": 1
+  },
+  "useDetail": {
+   "residential": 124092,
+   "commercial": 1687,
+   "office": 476,
+   "education": 308,
+   "annex": 248,
+   "health": 229,
+   "hospitality": 183,
+   "religious": 123,
+   "industrial": 49,
+   "transport": 37,
+   "government": 21,
+   "under_construction": 8,
+   "ruin": 6,
+   "mixed": 1
+  },
+  "floorsFrom": {
+   "none": 127447,
+   "osm:building:levels": 21
+  },
+  "floors": {
+   "1": 5,
+   "2": 4,
+   "3": 6,
+   "4": 6
+  },
+  "compoundsByDigits": {
+   "4": 76229,
+   "5": 27872
+  },
+  "annexCompounds": 18967,
+  "footprintAreaM2": {
+   "p10": 19.8,
+   "p25": 33.5,
+   "p50": 69.0,
+   "p75": 142.6,
+   "p90": 241.0
+  }
+ },
+ "regions": {
+  "Alibori": {
+   "compounds": 403785,
+   "structures": 521975,
+   "fromOpenStreetMap": 74794,
+   "structuresPerCompound": 1.293,
+   "shareStructuresInMultiStructureCompounds": 0.399,
+   "compoundSizeMix": {
+    "1": 313589,
+    "2": 69381,
+    "3": 15840,
+    "4": 3600,
+    "5": 940,
+    "6": 269,
+    "7+": 166
+   },
+   "rules": {
+    "single": 313566,
+    "annex": 65609,
+    "hut-cluster": 24501,
+    "enclosure": 109
+   },
+   "coverage": {
+    "nways": 403785
+   },
+   "useTop": {
+    "residential": 520323,
+    "annex": 1225,
+    "education": 109,
+    "commercial": 79,
+    "religious": 76,
+    "under_construction": 64,
+    "health": 32,
+    "industrial": 29,
+    "office": 16,
+    "hospitality": 10,
+    "government": 6,
+    "transport": 3,
+    "ruin": 2,
+    "agricultural": 1
+   },
+   "useDetail": {
+    "residential": 520323,
+    "annex": 1225,
+    "education": 109,
+    "commercial": 79,
+    "religious": 76,
+    "under_construction": 64,
+    "health": 32,
+    "industrial": 29,
+    "office": 16,
+    "hospitality": 10,
+    "government": 6,
+    "transport": 3,
+    "ruin": 2,
+    "agricultural": 1
+   },
+   "floorsFrom": {
+    "none": 521602,
+    "osm:building:levels": 373
+   },
+   "floors": {
+    "1": 371,
+    "4": 2
+   },
+   "compoundsByDigits": {
+    "4": 378631,
+    "5": 25154
+   },
+   "annexCompounds": 65609,
+   "footprintAreaM2": {
+    "p10": 13.1,
+    "p25": 17.8,
+    "p50": 27.7,
+    "p75": 49.4,
+    "p90": 84.2
+   }
+  },
+  "Atacora": {
+   "compounds": 319062,
+   "structures": 444922,
+   "fromOpenStreetMap": 84827,
+   "structuresPerCompound": 1.394,
+   "shareStructuresInMultiStructureCompounds": 0.49,
+   "compoundSizeMix": {
+    "1": 226858,
+    "2": 67602,
+    "3": 18332,
+    "4": 4473,
+    "5": 1229,
+    "6": 348,
+    "7+": 220
+   },
+   "rules": {
+    "single": 226844,
+    "annex": 65825,
+    "hut-cluster": 26334,
+    "enclosure": 59
+   },
+   "coverage": {
+    "nways": 319062
+   },
+   "useTop": {
+    "residential": 443451,
+    "annex": 755,
+    "commercial": 269,
+    "under_construction": 149,
+    "education": 138,
+    "hospitality": 45,
+    "health": 36,
+    "office": 34,
+    "religious": 21,
+    "government": 12,
+    "mixed": 4,
+    "transport": 4,
+    "industrial": 4
+   },
+   "useDetail": {
+    "residential": 443451,
+    "annex": 755,
+    "commercial": 269,
+    "under_construction": 149,
+    "education": 138,
+    "hospitality": 45,
+    "health": 36,
+    "office": 34,
+    "religious": 21,
+    "government": 12,
+    "mixed": 4,
+    "transport": 4,
+    "industrial": 4
+   },
+   "floorsFrom": {
+    "none": 441526,
+    "osm:building:levels": 3384,
+    "osm:height": 12
+   },
+   "floors": {
+    "1": 3391,
+    "2": 5
+   },
+   "compoundsByDigits": {
+    "4": 197001,
+    "5": 122061
+   },
+   "annexCompounds": 65825,
+   "footprintAreaM2": {
+    "p10": 13.5,
+    "p25": 18.7,
+    "p50": 28.5,
+    "p75": 46.2,
+    "p90": 75.2
+   }
+  },
+  "Atlantique": {
+   "compounds": 760567,
+   "structures": 948126,
+   "fromOpenStreetMap": 188202,
+   "structuresPerCompound": 1.247,
+   "shareStructuresInMultiStructureCompounds": 0.358,
+   "compoundSizeMix": {
+    "1": 608356,
+    "2": 123299,
+    "3": 23785,
+    "4": 4210,
+    "5": 702,
+    "6": 147,
+    "7+": 68
+   },
+   "rules": {
+    "single": 608075,
+    "annex": 151715,
+    "enclosure": 777
+   },
+   "coverage": {
+    "nways": 760567
+   },
+   "useTop": {
+    "residential": 943175,
+    "commercial": 1668,
+    "annex": 1444,
+    "education": 553,
+    "under_construction": 319,
+    "office": 221,
+    "health": 209,
+    "hospitality": 200,
+    "religious": 169,
+    "industrial": 93,
+    "ruin": 40,
+    "government": 24,
+    "transport": 9,
+    "mixed": 2
+   },
+   "useDetail": {
+    "residential": 943175,
+    "commercial": 1668,
+    "annex": 1444,
+    "education": 553,
+    "under_construction": 319,
+    "office": 221,
+    "health": 209,
+    "hospitality": 200,
+    "religious": 169,
+    "industrial": 93,
+    "ruin": 40,
+    "government": 24,
+    "transport": 9,
+    "mixed": 2
+   },
+   "floorsFrom": {
+    "none": 948088,
+    "osm:building:levels": 37,
+    "osm:height": 1
+   },
+   "floors": {
+    "1": 10,
+    "2": 12,
+    "3": 15,
+    "4": 1
+   },
+   "compoundsByDigits": {
+    "4": 522131,
+    "5": 238436
+   },
+   "annexCompounds": 151715,
+   "footprintAreaM2": {
+    "p10": 17.4,
+    "p25": 27.7,
+    "p50": 51.2,
+    "p75": 103.4,
+    "p90": 178.2
+   }
+  },
+  "Borgou": {
+   "compounds": 542943,
+   "structures": 661063,
+   "fromOpenStreetMap": 190689,
+   "structuresPerCompound": 1.218,
+   "shareStructuresInMultiStructureCompounds": 0.326,
+   "compoundSizeMix": {
+    "1": 445251,
+    "2": 81102,
+    "3": 13771,
+    "4": 2202,
+    "5": 425,
+    "6": 114,
+    "7+": 78
+   },
+   "rules": {
+    "single": 445186,
+    "annex": 80981,
+    "hut-cluster": 16565,
+    "enclosure": 211
+   },
+   "coverage": {
+    "nways": 542943
+   },
+   "useTop": {
+    "residential": 657992,
+    "annex": 977,
+    "commercial": 768,
+    "education": 695,
+    "religious": 180,
+    "under_construction": 144,
+    "health": 93,
+    "industrial": 65,
+    "hospitality": 57,
+    "office": 43,
+    "ruin": 25,
+    "government": 16,
+    "transport": 7,
+    "agricultural": 1
+   },
+   "useDetail": {
+    "residential": 657992,
+    "annex": 977,
+    "commercial": 768,
+    "education": 695,
+    "religious": 180,
+    "under_construction": 144,
+    "health": 93,
+    "industrial": 65,
+    "hospitality": 57,
+    "office": 43,
+    "ruin": 25,
+    "government": 16,
+    "transport": 7,
+    "agricultural": 1
+   },
+   "floorsFrom": {
+    "none": 660992,
+    "osm:height": 63,
+    "osm:building:levels": 8
+   },
+   "floors": {
+    "1": 50,
+    "2": 18,
+    "3": 2,
+    "4": 1
+   },
+   "compoundsByDigits": {
+    "4": 412722,
+    "5": 130221
+   },
+   "annexCompounds": 80981,
+   "footprintAreaM2": {
+    "p10": 14.1,
+    "p25": 19.7,
+    "p50": 34.6,
+    "p75": 67.6,
+    "p90": 106.5
+   }
+  },
+  "Collines": {
+   "compounds": 273300,
+   "structures": 347718,
+   "fromOpenStreetMap": 37311,
+   "structuresPerCompound": 1.272,
+   "shareStructuresInMultiStructureCompounds": 0.375,
+   "compoundSizeMix": {
+    "1": 217235,
+    "2": 43441,
+    "3": 9216,
+    "4": 2245,
+    "5": 697,
+    "6": 264,
+    "7+": 202
+   },
+   "rules": {
+    "single": 217220,
+    "annex": 46467,
+    "hut-cluster": 9549,
+    "enclosure": 64
+   },
+   "coverage": {
+    "nways": 273300
+   },
+   "useTop": {
+    "residential": 347006,
+    "annex": 270,
+    "education": 219,
+    "health": 72,
+    "religious": 50,
+    "commercial": 47,
+    "under_construction": 18,
+    "hospitality": 17,
+    "industrial": 7,
+    "government": 4,
+    "office": 4,
+    "ruin": 4
+   },
+   "useDetail": {
+    "residential": 347006,
+    "annex": 270,
+    "education": 219,
+    "health": 72,
+    "religious": 50,
+    "commercial": 47,
+    "under_construction": 18,
+    "hospitality": 17,
+    "industrial": 7,
+    "government": 4,
+    "office": 4,
+    "ruin": 4
+   },
+   "floorsFrom": {
+    "none": 347680,
+    "osm:building:levels": 38
+   },
+   "floors": {
+    "1": 37,
+    "3": 1
+   },
+   "compoundsByDigits": {
+    "4": 220111,
+    "5": 53189
+   },
+   "annexCompounds": 46467,
+   "footprintAreaM2": {
+    "p10": 15.3,
+    "p25": 21.7,
+    "p50": 36.6,
+    "p75": 75.1,
+    "p90": 131.5
+   }
+  },
+  "Couffo": {
+   "compounds": 275900,
+   "structures": 333845,
+   "fromOpenStreetMap": 26454,
+   "structuresPerCompound": 1.21,
+   "shareStructuresInMultiStructureCompounds": 0.32,
+   "compoundSizeMix": {
+    "1": 226929,
+    "2": 41354,
+    "3": 6499,
+    "4": 930,
+    "5": 153,
+    "6": 23,
+    "7+": 12
+   },
+   "rules": {
+    "single": 226921,
+    "annex": 48960,
+    "enclosure": 19
+   },
+   "coverage": {
+    "nways": 275900
+   },
+   "useTop": {
+    "residential": 333661,
+    "annex": 80,
+    "health": 46,
+    "commercial": 23,
+    "education": 13,
+    "religious": 8,
+    "hospitality": 7,
+    "office": 4,
+    "under_construction": 3
+   },
+   "useDetail": {
+    "residential": 333661,
+    "annex": 80,
+    "health": 46,
+    "commercial": 23,
+    "education": 13,
+    "religious": 8,
+    "hospitality": 7,
+    "office": 4,
+    "under_construction": 3
+   },
+   "floorsFrom": {
+    "none": 333842,
+    "osm:building:levels": 3
+   },
+   "floors": {
+    "1": 3
+   },
+   "compoundsByDigits": {
+    "4": 210149,
+    "5": 65751
+   },
+   "annexCompounds": 48960,
+   "footprintAreaM2": {
+    "p10": 19.2,
+    "p25": 30.0,
+    "p50": 46.3,
+    "p75": 69.7,
+    "p90": 105.3
+   }
+  },
+  "Donga": {
+   "compounds": 239569,
+   "structures": 298028,
+   "fromOpenStreetMap": 48288,
+   "structuresPerCompound": 1.244,
+   "shareStructuresInMultiStructureCompounds": 0.352,
+   "compoundSizeMix": {
+    "1": 193191,
+    "2": 36696,
+    "3": 7876,
+    "4": 1394,
+    "5": 297,
+    "6": 74,
+    "7+": 41
+   },
+   "rules": {
+    "single": 193183,
+    "annex": 46355,
+    "enclosure": 31
+   },
+   "coverage": {
+    "nways": 239569
+   },
+   "useTop": {
+    "residential": 297360,
+    "annex": 357,
+    "education": 102,
+    "commercial": 56,
+    "under_construction": 42,
+    "religious": 30,
+    "health": 26,
+    "industrial": 26,
+    "hospitality": 11,
+    "office": 9,
+    "government": 7,
+    "mixed": 2
+   },
+   "useDetail": {
+    "residential": 297360,
+    "annex": 357,
+    "education": 102,
+    "commercial": 56,
+    "under_construction": 42,
+    "religious": 30,
+    "health": 26,
+    "industrial": 26,
+    "hospitality": 11,
+    "office": 9,
+    "government": 7,
+    "mixed": 2
+   },
+   "floorsFrom": {
+    "none": 298026,
+    "osm:building:levels": 2
+   },
+   "floors": {
+    "1": 2
+   },
+   "compoundsByDigits": {
+    "4": 229232,
+    "5": 10337
+   },
+   "annexCompounds": 46355,
+   "footprintAreaM2": {
+    "p10": 14.6,
+    "p25": 22.2,
+    "p50": 36.1,
+    "p75": 66.2,
+    "p90": 111.5
+   }
+  },
+  "Littoral": {
+   "compounds": 104101,
+   "structures": 127468,
+   "fromOpenStreetMap": 42786,
+   "structuresPerCompound": 1.224,
+   "shareStructuresInMultiStructureCompounds": 0.333,
+   "compoundSizeMix": {
+    "1": 85063,
+    "2": 15588,
+    "3": 2812,
+    "4": 500,
+    "5": 92,
+    "6": 23,
+    "7+": 23
+   },
+   "rules": {
+    "single": 85037,
+    "annex": 18967,
+    "enclosure": 97
+   },
+   "coverage": {
+    "nways": 104101
+   },
+   "useTop": {
+    "residential": 124092,
+    "commercial": 1687,
+    "office": 476,
+    "education": 308,
+    "annex": 248,
+    "health": 229,
+    "hospitality": 183,
+    "religious": 123,
+    "industrial": 49,
+    "transport": 37,
+    "government": 21,
+    "under_construction": 8,
+    "ruin": 6,
+    "mixed": 1
+   },
+   "useDetail": {
+    "residential": 124092,
+    "commercial": 1687,
+    "office": 476,
+    "education": 308,
+    "annex": 248,
+    "health": 229,
+    "hospitality": 183,
+    "religious": 123,
+    "industrial": 49,
+    "transport": 37,
+    "government": 21,
+    "under_construction": 8,
+    "ruin": 6,
+    "mixed": 1
+   },
+   "floorsFrom": {
+    "none": 127447,
+    "osm:building:levels": 21
+   },
+   "floors": {
+    "1": 5,
+    "2": 4,
+    "3": 6,
+    "4": 6
+   },
+   "compoundsByDigits": {
+    "4": 76229,
+    "5": 27872
+   },
+   "annexCompounds": 18967,
+   "footprintAreaM2": {
+    "p10": 19.8,
+    "p25": 33.5,
+    "p50": 69.0,
+    "p75": 142.6,
+    "p90": 241.0
+   }
+  },
+  "Mono": {
+   "compounds": 196177,
+   "structures": 237191,
+   "fromOpenStreetMap": 56857,
+   "structuresPerCompound": 1.209,
+   "shareStructuresInMultiStructureCompounds": 0.318,
+   "compoundSizeMix": {
+    "1": 161648,
+    "2": 29033,
+    "3": 4693,
+    "4": 671,
+    "5": 105,
+    "6": 19,
+    "7+": 8
+   },
+   "rules": {
+    "single": 161614,
+    "annex": 34477,
+    "enclosure": 86
+   },
+   "coverage": {
+    "nways": 196177
+   },
+   "useTop": {
+    "residential": 236489,
+    "annex": 237,
+    "education": 130,
+    "under_construction": 107,
+    "commercial": 78,
+    "hospitality": 40,
+    "health": 39,
+    "religious": 19,
+    "ruin": 18,
+    "office": 13,
+    "industrial": 10,
+    "government": 8,
+    "agricultural": 1,
+    "transport": 1,
+    "mixed": 1
+   },
+   "useDetail": {
+    "residential": 236489,
+    "annex": 237,
+    "education": 130,
+    "under_construction": 107,
+    "commercial": 78,
+    "hospitality": 40,
+    "health": 39,
+    "religious": 19,
+    "ruin": 18,
+    "office": 13,
+    "industrial": 10,
+    "government": 8,
+    "agricultural": 1,
+    "transport": 1,
+    "mixed": 1
+   },
+   "floorsFrom": {
+    "none": 237184,
+    "osm:building:levels": 7
+   },
+   "floors": {
+    "1": 5,
+    "2": 2
+   },
+   "compoundsByDigits": {
+    "4": 168769,
+    "5": 27408
+   },
+   "annexCompounds": 34477,
+   "footprintAreaM2": {
+    "p10": 19.0,
+    "p25": 29.8,
+    "p50": 47.7,
+    "p75": 76.8,
+    "p90": 125.4
+   }
+  },
+  "Oueme": {
+   "compounds": 466122,
+   "structures": 571729,
+   "fromOpenStreetMap": 174666,
+   "structuresPerCompound": 1.227,
+   "shareStructuresInMultiStructureCompounds": 0.336,
+   "compoundSizeMix": {
+    "1": 379681,
+    "2": 70843,
+    "3": 12835,
+    "4": 2230,
+    "5": 400,
+    "6": 87,
+    "7+": 46
+   },
+   "rules": {
+    "single": 379646,
+    "annex": 86281,
+    "enclosure": 195
+   },
+   "coverage": {
+    "nways": 466122
+   },
+   "useTop": {
+    "residential": 568348,
+    "commercial": 1494,
+    "education": 419,
+    "annex": 361,
+    "religious": 249,
+    "under_construction": 233,
+    "office": 204,
+    "health": 150,
+    "industrial": 106,
+    "hospitality": 103,
+    "government": 28,
+    "ruin": 19,
+    "mixed": 7,
+    "agricultural": 5,
+    "transport": 3
+   },
+   "useDetail": {
+    "residential": 568348,
+    "commercial": 1494,
+    "education": 419,
+    "annex": 361,
+    "religious": 249,
+    "under_construction": 233,
+    "office": 204,
+    "health": 150,
+    "industrial": 106,
+    "hospitality": 103,
+    "government": 28,
+    "ruin": 19,
+    "mixed": 7,
+    "agricultural": 5,
+    "transport": 3
+   },
+   "floorsFrom": {
+    "none": 571712,
+    "osm:building:levels": 16,
+    "osm:height": 1
+   },
+   "floors": {
+    "1": 12,
+    "2": 4,
+    "3": 1
+   },
+   "compoundsByDigits": {
+    "4": 356484,
+    "5": 109638
+   },
+   "annexCompounds": 86281,
+   "footprintAreaM2": {
+    "p10": 18.9,
+    "p25": 30.3,
+    "p50": 54.1,
+    "p75": 97.3,
+    "p90": 166.0
+   }
+  },
+  "Plateau": {
+   "compounds": 221196,
+   "structures": 260505,
+   "fromOpenStreetMap": 37708,
+   "structuresPerCompound": 1.178,
+   "shareStructuresInMultiStructureCompounds": 0.278,
+   "compoundSizeMix": {
+    "1": 188161,
+    "2": 27837,
+    "3": 4338,
+    "4": 701,
+    "5": 126,
+    "6": 20,
+    "7+": 13
+   },
+   "rules": {
+    "single": 188161,
+    "annex": 33031,
+    "enclosure": 4
+   },
+   "coverage": {
+    "nways": 221196
+   },
+   "useTop": {
+    "residential": 259674,
+    "annex": 310,
+    "education": 135,
+    "industrial": 117,
+    "commercial": 110,
+    "health": 55,
+    "religious": 46,
+    "under_construction": 29,
+    "office": 13,
+    "government": 7,
+    "hospitality": 6,
+    "mixed": 1,
+    "transport": 1,
+    "agricultural": 1
+   },
+   "useDetail": {
+    "residential": 259674,
+    "annex": 310,
+    "education": 135,
+    "industrial": 117,
+    "commercial": 110,
+    "health": 55,
+    "religious": 46,
+    "under_construction": 29,
+    "office": 13,
+    "government": 7,
+    "hospitality": 6,
+    "mixed": 1,
+    "transport": 1,
+    "agricultural": 1
+   },
+   "floorsFrom": {
+    "none": 260503,
+    "osm:building:levels": 2
+   },
+   "floors": {
+    "1": 2
+   },
+   "compoundsByDigits": {
+    "4": 157500,
+    "5": 63696
+   },
+   "annexCompounds": 33031,
+   "footprintAreaM2": {
+    "p10": 18.3,
+    "p25": 28.2,
+    "p50": 55.0,
+    "p75": 100.7,
+    "p90": 157.4
+   }
+  },
+  "Zou": {
+   "compounds": 345019,
+   "structures": 421912,
+   "fromOpenStreetMap": 77439,
+   "structuresPerCompound": 1.223,
+   "shareStructuresInMultiStructureCompounds": 0.327,
+   "compoundSizeMix": {
+    "1": 284116,
+    "2": 48806,
+    "3": 9398,
+    "4": 1902,
+    "5": 525,
+    "6": 186,
+    "7+": 86
+   },
+   "rules": {
+    "single": 284091,
+    "annex": 60869,
+    "enclosure": 59
+   },
+   "coverage": {
+    "nways": 345019
+   },
+   "useTop": {
+    "residential": 420984,
+    "annex": 387,
+    "education": 139,
+    "commercial": 134,
+    "health": 68,
+    "under_construction": 66,
+    "hospitality": 55,
+    "religious": 39,
+    "office": 17,
+    "industrial": 17,
+    "government": 4,
+    "transport": 2
+   },
+   "useDetail": {
+    "residential": 420984,
+    "annex": 387,
+    "education": 139,
+    "commercial": 134,
+    "health": 68,
+    "under_construction": 66,
+    "hospitality": 55,
+    "religious": 39,
+    "office": 17,
+    "industrial": 17,
+    "government": 4,
+    "transport": 2
+   },
+   "floorsFrom": {
+    "none": 421912
+   },
+   "floors": {},
+   "compoundsByDigits": {
+    "4": 312239,
+    "5": 32780
+   },
+   "annexCompounds": 60869,
+   "footprintAreaM2": {
+    "p10": 17.7,
+    "p25": 26.5,
+    "p50": 45.0,
+    "p75": 78.8,
+    "p90": 132.8
+   }
+  }
+ },
+ "units": {
+  "CAL": {
+   "compounds": 378856,
+   "structures": 472850
+  },
+  "SEM": {
+   "compounds": 128635,
+   "structures": 159346
+  },
+  "DJO": {
+   "compounds": 122575,
+   "structures": 151044
+  },
+  "BAN": {
+   "compounds": 121704,
+   "structures": 161625
+  },
+  "PKO": {
+   "compounds": 112269,
+   "structures": 136171
+  },
+  "COT": {
+   "compounds": 104101,
+   "structures": 127468
+  },
+  "TCH": {
+   "compounds": 96359,
+   "structures": 117534
+  },
+  "KAN": {
+   "compounds": 90094,
+   "structures": 119074
+  },
+  "BOH": {
+   "compounds": 77217,
+   "structures": 92156
+  },
+  "OUI": {
+   "compounds": 77134,
+   "structures": 95590
+  },
+  "NIK": {
+   "compounds": 76359,
+   "structures": 95333
+  },
+  "ZEE": {
+   "compounds": 75606,
+   "structures": 94048
+  },
+  "GOG": {
+   "compounds": 71484,
+   "structures": 88512
+  },
+  "PNO": {
+   "compounds": 69520,
+   "structures": 85089
+  },
+  "KAL": {
+   "compounds": 68875,
+   "structures": 86085
+  },
+  "DJI": {
+   "compounds": 68407,
+   "structures": 88888
+  },
+  "BEM": {
+   "compounds": 67780,
+   "structures": 81137
+  },
+  "ALL": {
+   "compounds": 66858,
+   "structures": 83231
+  },
+  "SVL": {
+   "compounds": 63007,
+   "structures": 84222
+  },
+  "ABO": {
+   "compounds": 62476,
+   "structures": 77229
+  },
+  "AVR": {
+   "compounds": 61236,
+   "structures": 76542
+  },
+  "BAS": {
+   "compounds": 59776,
+   "structures": 72599
+  },
+  "KLO": {
+   "compounds": 59450,
+   "structures": 69297
+  },
+  "APL": {
+   "compounds": 59211,
+   "structures": 69362
+  },
+  "ADA": {
+   "compounds": 56677,
+   "structures": 69234
+  },
+  "KET": {
+   "compounds": 55085,
+   "structures": 61866
+  },
+  "NDA": {
+   "compounds": 54582,
+   "structures": 65187
+  },
+  "AKP": {
+   "compounds": 54326,
+   "structures": 64610
+  },
+  "MAL": {
+   "compounds": 52688,
+   "structures": 67739
+  },
+  "TOF": {
+   "compounds": 52579,
+   "structures": 65924
+  },
+  "TOR": {
+   "compounds": 52231,
+   "structures": 65275
+  },
+  "KER": {
+   "compounds": 49152,
+   "structures": 60513
+  },
+  "ZAK": {
+   "compounds": 48909,
+   "structures": 59236
+  },
+  "DAS": {
+   "compounds": 48898,
+   "structures": 64629
+  },
+  "MAT": {
+   "compounds": 46841,
+   "structures": 67554
+  },
+  "SEG": {
+   "compounds": 46602,
+   "structures": 57487
+  },
+  "LOK": {
+   "compounds": 46420,
+   "structures": 56801
+  },
+  "IFA": {
+   "compounds": 46141,
+   "structures": 55227
+  },
+  "NAT": {
+   "compounds": 45706,
+   "structures": 62762
+  },
+  "SAK": {
+   "compounds": 45444,
+   "structures": 54024
+  },
+  "GLA": {
+   "compounds": 45074,
+   "structures": 56895
+  },
+  "KOU": {
+   "compounds": 44314,
+   "structures": 58207
+  },
+  "OUE": {
+   "compounds": 43901,
+   "structures": 52618
+  },
+  "KPO": {
+   "compounds": 43133,
+   "structures": 52302
+  },
+  "DJA": {
+   "compounds": 42156,
+   "structures": 51076
+  },
+  "HOU": {
+   "compounds": 41479,
+   "structures": 49547
+  },
+  "DOG": {
+   "compounds": 41068,
+   "structures": 51766
+  },
+  "LAL": {
+   "compounds": 38260,
+   "structures": 49021
+  },
+  "BTE": {
+   "compounds": 37759,
+   "structures": 45566
+  },
+  "AGB": {
+   "compounds": 37685,
+   "structures": 44788
+  },
+  "POB": {
+   "compounds": 37533,
+   "structures": 46068
+  },
+  "BOP": {
+   "compounds": 37410,
+   "structures": 46766
+  },
+  "ADJ": {
+   "compounds": 36993,
+   "structures": 43320
+  },
+  "ADH": {
+   "compounds": 36821,
+   "structures": 44471
+  },
+  "TOV": {
+   "compounds": 35755,
+   "structures": 43323
+  },
+  "COM": {
+   "compounds": 35602,
+   "structures": 41480
+  },
+  "SIN": {
+   "compounds": 35589,
+   "structures": 42547
+  },
+  "SAV": {
+   "compounds": 34661,
+   "structures": 43788
+  },
+  "BOU": {
+   "compounds": 34460,
+   "structures": 52078
+  },
+  "PER": {
+   "compounds": 31130,
+   "structures": 37069
+  },
+  "TAN": {
+   "compounds": 30386,
+   "structures": 46923
+  },
+  "OUA": {
+   "compounds": 28636,
+   "structures": 37285
+  },
+  "COP": {
+   "compounds": 28582,
+   "structures": 37100
+  },
+  "ZOG": {
+   "compounds": 27672,
+   "structures": 33161
+  },
+  "DAN": {
+   "compounds": 27417,
+   "structures": 34488
+  },
+  "PEH": {
+   "compounds": 26542,
+   "structures": 33341
+  },
+  "KOB": {
+   "compounds": 25541,
+   "structures": 38395
+  },
+  "BON": {
+   "compounds": 23695,
+   "structures": 27905
+  },
+  "GPO": {
+   "compounds": 21392,
+   "structures": 25922
+  },
+  "KAR": {
+   "compounds": 21213,
+   "structures": 27538
+  },
+  "TOU": {
+   "compounds": 16120,
+   "structures": 25149
+  },
+  "SOA": {
+   "compounds": 14170,
+   "structures": 18906
+  },
+  "ATH": {
+   "compounds": 13874,
+   "structures": 16675
+  },
+  "ZAG": {
+   "compounds": 9417,
+   "structures": 10795
+  },
+  "AGU": {
+   "compounds": 7795,
+   "structures": 10044
+  },
+  "OUN": {
+   "compounds": 7333,
+   "structures": 8548
+  },
+  "COV": {
+   "compounds": 5903,
+   "structures": 7111
+  }
+ },
+ "validation": {
+  "mappedEnclosures": 1107,
+  "byKind": {
+   "osm-wall": 860,
+   "osm-fence": 247
+  },
+  "whole": 90,
+  "exact": 79,
+  "missingOne": 438,
+  "shareWhole": 0.081,
+  "shareExact": 0.071,
+  "shareMissingOne": 0.396
+ },
+ "access": {
+  "health": {
+   "facilities": 1099,
+   "within2km": 0.48,
+   "within5km": 0.707,
+   "medianKm": 2.2
+  },
+  "school": {
+   "facilities": 2399,
+   "within2km": 0.504,
+   "within5km": 0.732,
+   "medianKm": 2.0
+  },
+  "police": {
+   "facilities": 149,
+   "within2km": 0.197,
+   "within5km": 0.343,
+   "medianKm": 8.9
+  },
+  "pharmacy": {
+   "facilities": 294,
+   "within2km": 0.249,
+   "within5km": 0.394,
+   "medianKm": 7.9
+  }
+ },
+ "accessSample": 20000
+}

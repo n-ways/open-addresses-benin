@@ -1,0 +1,19 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\pgfplotstableread{footprints.dat}\fp
+\begin{axis}[width=12cm, height=8cm, xbar stacked, bar width=7pt, xmin=0, xmax=1000000,
+  ytick=data, yticklabels from table={\fp}{dep}, y tick label style={font=\scriptsize},
+  xtick={0,200000,400000,600000,800000,1000000}, scaled x ticks=false, xticklabel style={font=\scriptsize, /pgf/number format/fixed},
+  xlabel={\T{building footprints}{empreintes de bâtiments}}, axis x line*=bottom, axis y line*=left, xmajorgrids, grid style={black!8},
+  legend style={at={(0.98,0.03)}, anchor=south east, draw=none, font=\scriptsize}, legend cell align=left, enlarge y limits=0.06]
+  \addplot[fill=green, draw=none] table[y expr=\coordindex, x=osm] {\fp};
+  \addlegendentry{OpenStreetMap}
+  \addplot[fill=yellow!85!black, draw=none] table[y expr=\coordindex, x=ml] {\fp};
+  \addlegendentry{\T{Google Open Buildings and Microsoft (via Overture)}{Google Open Buildings et Microsoft (via Overture)}}
+  \addplot[stack plots=false, only marks, mark=|, mark size=4.5pt, line width=1.2pt, color=red, mark options={draw=red}] table[y expr=\coordindex, x=compounds] {\fp};
+  \addlegendentry{\T{compounds}{concessions}}
+\end{axis}
+\end{tikzpicture}
+\end{document}

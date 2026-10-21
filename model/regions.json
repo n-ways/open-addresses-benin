@@ -1,0 +1,302 @@
+[
+  {
+    "key": "AK",
+    "iso": "BJ-AK",
+    "name": "Atakora Department",
+    "nameFr": "Atacora",
+    "nameLocal": "Atakora",
+    "wikidata": "Q29154",
+    "areaKm2": 20882.6,
+    "box": [
+      0.77667,
+      9.95076,
+      2.28837,
+      11.48107
+    ],
+    "buildings": {
+      "openstreetmap": 84144,
+      "ml": 362434,
+      "total": 446578
+    },
+    "codeLength": {
+      "spot": 8,
+      "building": 5
+    },
+    "needsSubdivision": true
+  },
+  {
+    "key": "AL",
+    "iso": "BJ-AL",
+    "name": "Alibori Department",
+    "nameFr": "Alibori",
+    "nameLocal": "Alibori",
+    "wikidata": "Q29165",
+    "areaKm2": 26497.3,
+    "box": [
+      2.02188,
+      10.52339,
+      3.83881,
+      12.4092
+    ],
+    "buildings": {
+      "openstreetmap": 74783,
+      "ml": 443718,
+      "total": 518501
+    },
+    "codeLength": {
+      "spot": 8,
+      "building": 5
+    },
+    "needsSubdivision": true
+  },
+  {
+    "key": "AQ",
+    "iso": "BJ-AQ",
+    "name": "Atlantique Department",
+    "nameFr": "Atlantique",
+    "nameLocal": "Atlantique",
+    "wikidata": "Q29147",
+    "areaKm2": 3159.8,
+    "box": [
+      1.94178,
+      6.3024,
+      2.49486,
+      6.93073
+    ],
+    "buildings": {
+      "openstreetmap": 187914,
+      "ml": 751223,
+      "total": 939137
+    },
+    "codeLength": {
+      "spot": 7,
+      "building": 5
+    },
+    "needsSubdivision": false
+  },
+  {
+    "key": "BO",
+    "iso": "BJ-BO",
+    "name": "Borgou Department",
+    "nameFr": "Borgou",
+    "nameLocal": "Borgou",
+    "wikidata": "Q29136",
+    "areaKm2": 26028.7,
+    "box": [
+      1.96972,
+      8.74743,
+      3.84515,
+      10.65059
+    ],
+    "buildings": {
+      "openstreetmap": 190618,
+      "ml": 468932,
+      "total": 659550
+    },
+    "codeLength": {
+      "spot": 8,
+      "building": 5
+    },
+    "needsSubdivision": true
+  },
+  {
+    "key": "CO",
+    "iso": "BJ-CO",
+    "name": "Collines Department",
+    "nameFr": "Collines",
+    "nameLocal": "Collines",
+    "wikidata": "Q29141",
+    "areaKm2": 14113.3,
+    "box": [
+      1.61306,
+      7.44156,
+      2.76903,
+      8.78081
+    ],
+    "buildings": {
+      "openstreetmap": 36883,
+      "ml": 311362,
+      "total": 348245
+    },
+    "codeLength": {
+      "spot": 8,
+      "building": 5
+    },
+    "needsSubdivision": true
+  },
+  {
+    "key": "DO",
+    "iso": "BJ-DO",
+    "name": "Donga Department",
+    "nameFr": "Donga",
+    "nameLocal": "Donga",
+    "wikidata": "Q29161",
+    "areaKm2": 10860.7,
+    "box": [
+      1.3375,
+      8.47528,
+      2.22188,
+      10.06096
+    ],
+    "buildings": {
+      "openstreetmap": 49096,
+      "ml": 253089,
+      "total": 302185
+    },
+    "codeLength": {
+      "spot": 7,
+      "building": 5
+    },
+    "needsSubdivision": false
+  },
+  {
+    "key": "KO",
+    "iso": "BJ-KO",
+    "name": "Kouffo Department",
+    "nameFr": "Couffo",
+    "nameLocal": "Kouffo",
+    "wikidata": "Q29173",
+    "areaKm2": 2391.1,
+    "box": [
+      1.55903,
+      6.71485,
+      2.09639,
+      7.53006
+    ],
+    "buildings": {
+      "openstreetmap": 25882,
+      "ml": 306469,
+      "total": 332351
+    },
+    "codeLength": {
+      "spot": 7,
+      "building": 5
+    },
+    "needsSubdivision": false
+  },
+  {
+    "key": "LI",
+    "iso": "BJ-LI",
+    "name": "Littoral Department",
+    "nameFr": "Littoral",
+    "nameLocal": "Littoral",
+    "wikidata": "Q29158",
+    "areaKm2": 70.2,
+    "box": [
+      2.35457,
+      6.33728,
+      2.49585,
+      6.39924
+    ],
+    "buildings": {
+      "openstreetmap": 53048,
+      "ml": 114236,
+      "total": 167284
+    },
+    "codeLength": {
+      "spot": 6,
+      "building": 5
+    },
+    "needsSubdivision": false
+  },
+  {
+    "key": "MO",
+    "iso": "BJ-MO",
+    "name": "Mono Department",
+    "nameFr": "Mono",
+    "nameLocal": "Mono",
+    "wikidata": "Q29135",
+    "areaKm2": 1619.9,
+    "box": [
+      1.57506,
+      6.23514,
+      2.03722,
+      6.78249
+    ],
+    "buildings": {
+      "openstreetmap": 57243,
+      "ml": 181641,
+      "total": 238884
+    },
+    "codeLength": {
+      "spot": 7,
+      "building": 5
+    },
+    "needsSubdivision": false
+  },
+  {
+    "key": "OU",
+    "iso": "BJ-OU",
+    "name": "Ouémé Department",
+    "nameFr": "Ouémé",
+    "nameLocal": "Ouémé",
+    "wikidata": "Q29169",
+    "areaKm2": 1326.2,
+    "box": [
+      2.38614,
+      6.35806,
+      2.72999,
+      6.99763
+    ],
+    "buildings": {
+      "openstreetmap": 164109,
+      "ml": 373808,
+      "total": 537917
+    },
+    "codeLength": {
+      "spot": 7,
+      "building": 5
+    },
+    "needsSubdivision": false
+  },
+  {
+    "key": "PL",
+    "iso": "BJ-PL",
+    "name": "Plateau Department",
+    "nameFr": "Plateau",
+    "nameLocal": "Plateau",
+    "wikidata": "Q32108",
+    "areaKm2": 3097.3,
+    "box": [
+      2.41667,
+      6.54058,
+      2.79603,
+      7.66
+    ],
+    "buildings": {
+      "openstreetmap": 38353,
+      "ml": 222517,
+      "total": 260870
+    },
+    "codeLength": {
+      "spot": 7,
+      "building": 5
+    },
+    "needsSubdivision": false
+  },
+  {
+    "key": "ZO",
+    "iso": "BJ-ZO",
+    "name": "Zou Department",
+    "nameFr": "Zou",
+    "nameLocal": "Zou",
+    "wikidata": "Q29172",
+    "areaKm2": 5187.2,
+    "box": [
+      1.64139,
+      6.90944,
+      2.56346,
+      7.65742
+    ],
+    "buildings": {
+      "openstreetmap": 77948,
+      "ml": 345032,
+      "total": 422980
+    },
+    "codeLength": {
+      "spot": 7,
+      "building": 5
+    },
+    "needsSubdivision": false
+  }
+]

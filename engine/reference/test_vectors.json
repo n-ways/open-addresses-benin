@@ -1,0 +1,1149 @@
+{
+ "engine": "bj_engine.py 1.0",
+ "built": "2026-10-20",
+ "damm": [
+  {
+   "digits": "120314817",
+   "check": 5
+  },
+  {
+   "digits": "090044817",
+   "check": 3
+  },
+  {
+   "digits": "13",
+   "check": 0
+  },
+  {
+   "digits": "572",
+   "check": 4
+  },
+  {
+   "digits": "000000000",
+   "check": 0
+  }
+ ],
+ "spot": [
+  {
+   "label": "Cotonou, Zogbo (OSM place)",
+   "lat": 6.392518,
+   "lon": 2.394291,
+   "utm31n": [
+    433014.812,
+    706634.101
+   ],
+   "spot": "BJ-COT-09-S-35986W",
+   "spotDisplay": "COT 09 · 359 86W",
+   "decoded": [
+    6.3925126,
+    2.3942972
+   ],
+   "area": {
+    "commune": "COT",
+    "arrondissement": 9,
+    "arrondissementName": "9ème Arrondissement",
+    "quartier": 4,
+    "quartierName": "Zogbo"
+   }
+  },
+  {
+   "label": "Cotonou, building with a mapped enclosure near Gbégamey (ML footprint 233.7 m², h 6.1 m)",
+   "lat": 6.385013,
+   "lon": 2.420889,
+   "utm31n": [
+    435955.445,
+    705801.041
+   ],
+   "spot": "BJ-COT-06-S-448FM7",
+   "spotDisplay": "COT 06 · 448 FM7",
+   "decoded": [
+    6.3850081,
+    2.4208985
+   ],
+   "area": {
+    "commune": "COT",
+    "arrondissement": 6,
+    "arrondissementName": "6ème Arrondissement",
+    "quartier": 1,
+    "quartierName": "Agata"
+   }
+  },
+  {
+   "label": "Cotonou, school footprint (ML 316.7 m², places: school)",
+   "lat": 6.3725247,
+   "lon": 2.4620978,
+   "utm31n": [
+    440511.47,
+    704415.538
+   ],
+   "spot": "BJ-SEM-02-S-3357H5",
+   "spotDisplay": "SEM 02 · 335 7H5",
+   "decoded": [
+    6.3725153,
+    2.462089
+   ],
+   "area": {
+    "commune": "SEM",
+    "arrondissement": 2,
+    "arrondissementName": "2ème Arrondissement",
+    "quartier": 3,
+    "quartierName": "Yénawa"
+   }
+  },
+  {
+   "label": "Cotonou, supermarket footprint (OSM 359.2 m²)",
+   "lat": 6.3664021,
+   "lon": 2.428563,
+   "utm31n": [
+    436801.871,
+    703742.675
+   ],
+   "spot": "BJ-COT-06-S-25J599",
+   "spotDisplay": "COT 06 · 25J 599",
+   "decoded": [
+    6.3664005,
+    2.4285687
+   ],
+   "area": {
+    "commune": "COT",
+    "arrondissement": 6,
+    "arrondissementName": "6ème Arrondissement",
+    "quartier": 8,
+    "quartierName": "Dantokpa"
+   }
+  },
+  {
+   "label": "Cotonou, hospital footprint (OSM building=hospital, 637.2 m²)",
+   "lat": 6.3707444,
+   "lon": 2.4474113,
+   "utm31n": [
+    438886.978,
+    704220.443
+   ],
+   "spot": "BJ-SEM-03-S-332H8C",
+   "spotDisplay": "SEM 03 · 332 H8C",
+   "decoded": [
+    6.3707359,
+    2.4473979
+   ],
+   "area": {
+    "commune": "SEM",
+    "arrondissement": 3,
+    "arrondissementName": "3ème Arrondissement",
+    "quartier": 1,
+    "quartierName": "Abokicodji-Lagune"
+   }
+  },
+  {
+   "label": "Cotonou, Dantokpa (OSM place)",
+   "lat": 6.375532,
+   "lon": 2.431404,
+   "utm31n": [
+    437117.193,
+    704751.63
+   ],
+   "spot": "BJ-COT-06-S-35FC5J",
+   "spotDisplay": "COT 06 · 35F C5J",
+   "decoded": [
+    6.3755218,
+    2.4314068
+   ],
+   "area": {
+    "commune": "COT",
+    "arrondissement": 6,
+    "arrondissementName": "6ème Arrondissement",
+    "quartier": 8,
+    "quartierName": "Dantokpa"
+   }
+  },
+  {
+   "label": "Cotonou, Agla (OSM place)",
+   "lat": 6.375472,
+   "lon": 2.369229,
+   "utm31n": [
+    430240.798,
+    704752.989
+   ],
+   "spot": "BJ-COT-13-S-4372VM",
+   "spotDisplay": "COT 13 · 437 2VM",
+   "decoded": [
+    6.3754676,
+    2.3692263
+   ],
+   "area": {
+    "commune": "COT",
+    "arrondissement": 13,
+    "arrondissementName": "13ème Arrondissement",
+    "quartier": 2,
+    "quartierName": "Agla"
+   }
+  },
+  {
+   "label": "Sô-Ava, Ganvié stilt house (ML footprint centroid)",
+   "lat": 6.468357,
+   "lon": 2.389748,
+   "utm31n": [
+    432522.386,
+    715018.705
+   ],
+   "spot": "BJ-SOA-04-S-74R4X2",
+   "spotDisplay": "SOA 04 · 74R 4X2",
+   "decoded": [
+    6.4683551,
+    2.38974
+   ],
+   "area": {
+    "commune": "SOA",
+    "arrondissement": 4,
+    "arrondissementName": "Ganvié II",
+    "quartier": 2,
+    "quartierName": "Ganvié"
+   }
+  },
+  {
+   "label": "Sô-Ava, Ganvié 1 stilt house (ML footprint centroid)",
+   "lat": 6.4686,
+   "lon": 2.386362,
+   "utm31n": [
+    432148.003,
+    715046.019
+   ],
+   "spot": "BJ-CAL-02-S-79VJCF",
+   "spotDisplay": "CAL 02 · 79V JCF",
+   "decoded": [
+    6.4685953,
+    2.3863665
+   ],
+   "area": {
+    "commune": "CAL",
+    "arrondissement": 2,
+    "arrondissementName": "Calavi",
+    "quartier": 11,
+    "quartierName": "Ganvié 1"
+   }
+  },
+  {
+   "label": "Parakou, building (ML footprint centroid)",
+   "lat": 9.350074,
+   "lon": 2.616873,
+   "utm31n": [
+    457929.951,
+    1033578.607
+   ],
+   "spot": "BJ-PKO-01-S-23G2FQJF",
+   "spotDisplay": "PKO 01 · 23G 2FQJF",
+   "decoded": [
+    9.350064,
+    2.6168598
+   ],
+   "area": {
+    "commune": "PKO",
+    "arrondissement": 1,
+    "arrondissementName": "1er Arrondissement",
+    "quartier": 1,
+    "quartierName": "Alaga"
+   }
+  },
+  {
+   "label": "Natitingou, building (ML footprint centroid)",
+   "lat": 10.300156,
+   "lon": 1.383612,
+   "utm31n": [
+    322993.998,
+    1139045.623
+   ],
+   "spot": "BJ-NAT-03-S-G6VXCV",
+   "spotDisplay": "NAT 03 · G6V XCV",
+   "decoded": [
+    10.3001548,
+    1.3835983
+   ],
+   "area": {
+    "commune": "NAT",
+    "arrondissement": 3,
+    "arrondissementName": "3ème C.U.Natitingou",
+    "quartier": 2,
+    "quartierName": "Kantaborifa"
+   }
+  },
+  {
+   "label": "Porto-Novo (OSM place)",
+   "lat": 6.499072,
+   "lon": 2.625336,
+   "utm31n": [
+    458575.129,
+    718388.917
+   ],
+   "spot": "BJ-PNO-04-S-34XXRH",
+   "spotDisplay": "PNO 04 · 34X XRH",
+   "decoded": [
+    6.4990773,
+    2.6253303
+   ],
+   "area": {
+    "commune": "PNO",
+    "arrondissement": 4,
+    "arrondissementName": "4ème Arrondissement",
+    "quartier": 4,
+    "quartierName": "Porto-Novo"
+   }
+  },
+  {
+   "label": "Ouidah (OSM place)",
+   "lat": 6.366615,
+   "lon": 2.08536,
+   "utm31n": [
+    398842.772,
+    703820.802
+   ],
+   "spot": "BJ-OUI-03-S-429P22",
+   "spotDisplay": "OUI 03 · 429 P22",
+   "decoded": [
+    6.3666213,
+    2.0853485
+   ],
+   "area": {
+    "commune": "OUI",
+    "arrondissement": 3,
+    "arrondissementName": "3e Arrondissement",
+    "quartier": 3,
+    "quartierName": "Ouidah"
+   }
+  },
+  {
+   "label": "Malanville (OSM place)",
+   "lat": 11.866,
+   "lon": 3.389,
+   "utm31n": [
+    542367.287,
+    1311765.822
+   ],
+   "spot": "BJ-MAL-04-S-M748Q4",
+   "spotDisplay": "MAL 04 · M74 8Q4",
+   "decoded": [
+    11.8660061,
+    3.389002
+   ],
+   "area": {
+    "commune": "MAL",
+    "arrondissement": 4,
+    "arrondissementName": "Malanville",
+    "quartier": 5,
+    "quartierName": "Malanville"
+   }
+  }
+ ],
+ "compoundSample": {
+  "source": "engine/reference/testdata/cotonou-sample-*.geojson (OSM + ML footprints, OSM barriers), box [2.4194841, 6.3837229, 2.4241206, 6.3867089]",
+  "structures": 760,
+  "compounds": 575,
+  "codeAreas": 5,
+  "sample": [
+   {
+    "centroid": [
+     2.4200201,
+     6.3839086
+    ],
+    "structures": 1,
+    "rule": "single",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1200,
+    "machine": "BJ-COT-06-001-1200-7",
+    "remembered": "Agata · 12 00",
+    "spokenFr": "douze zéro zéro"
+   },
+   {
+    "centroid": [
+     2.4195402,
+     6.3841687
+    ],
+    "structures": 2,
+    "rule": "annex-host",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1206,
+    "machine": "BJ-COT-06-001-1206-4",
+    "remembered": "Agata · 12 06",
+    "spokenFr": "douze zéro six"
+   },
+   {
+    "centroid": [
+     2.4197496,
+     6.384163
+    ],
+    "structures": 2,
+    "rule": "annex-host",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1208,
+    "machine": "BJ-COT-06-001-1208-6",
+    "remembered": "Agata · 12 08",
+    "spokenFr": "douze zéro huit"
+   },
+   {
+    "centroid": [
+     2.4194853,
+     6.3842618
+    ],
+    "structures": 1,
+    "rule": "single",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1210,
+    "machine": "BJ-COT-06-001-1210-8",
+    "remembered": "Agata · 12 10",
+    "spokenFr": "douze dix"
+   },
+   {
+    "centroid": [
+     2.4203609,
+     6.3844542
+    ],
+    "structures": 3,
+    "rule": "annex-host",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1232,
+    "machine": "BJ-COT-06-001-1232-1",
+    "remembered": "Agata · 12 32",
+    "spokenFr": "douze trente-deux"
+   },
+   {
+    "centroid": [
+     2.420427,
+     6.3839683
+    ],
+    "structures": 2,
+    "rule": "annex-host",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1248,
+    "machine": "BJ-COT-06-001-1248-9",
+    "remembered": "Agata · 12 48",
+    "spokenFr": "douze quarante-huit"
+   },
+   {
+    "centroid": [
+     2.4204752,
+     6.3840603
+    ],
+    "structures": 1,
+    "rule": "single",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1250,
+    "machine": "BJ-COT-06-001-1250-9",
+    "remembered": "Agata · 12 50",
+    "spokenFr": "douze cinquante"
+   },
+   {
+    "centroid": [
+     2.4201157,
+     6.3840186
+    ],
+    "structures": 2,
+    "rule": "annex-host",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1254,
+    "machine": "BJ-COT-06-001-1254-6",
+    "remembered": "Agata · 12 54",
+    "spokenFr": "douze cinquante-quatre"
+   },
+   {
+    "centroid": [
+     2.4202981,
+     6.3838942
+    ],
+    "structures": 3,
+    "rule": "annex-host",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1258,
+    "machine": "BJ-COT-06-001-1258-0",
+    "remembered": "Agata · 12 58",
+    "spokenFr": "douze cinquante-huit"
+   },
+   {
+    "centroid": [
+     2.4201376,
+     6.3838648
+    ],
+    "structures": 1,
+    "rule": "single",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1260,
+    "machine": "BJ-COT-06-001-1260-1",
+    "remembered": "Agata · 12 60",
+    "spokenFr": "douze soixante"
+   },
+   {
+    "centroid": [
+     2.4203451,
+     6.3837555
+    ],
+    "structures": 2,
+    "rule": "annex-host",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1264,
+    "machine": "BJ-COT-06-001-1264-9",
+    "remembered": "Agata · 12 64",
+    "spokenFr": "douze soixante-quatre"
+   },
+   {
+    "centroid": [
+     2.4211209,
+     6.3840045
+    ],
+    "structures": 2,
+    "rule": "annex-host",
+    "class": "residential-one-household",
+    "area": [
+     "COT",
+     6,
+     1,
+     "Agata"
+    ],
+    "number": 1278,
+    "machine": "BJ-COT-06-001-1278-7",
+    "remembered": "Agata · 12 78",
+    "spokenFr": "douze soixante-dix-huit"
+   }
+  ],
+  "provisional": {
+   "area": [
+    "COT",
+    6,
+    1
+   ],
+   "areaBox": [
+    2.4194841,
+    6.3837229,
+    2.4241206,
+    6.3867089
+   ],
+   "membersInArea": 419,
+   "block": [
+    1200,
+    1300
+   ],
+   "lon": 2.421199605,
+   "lat": 6.385544360000001,
+   "number": 1549
+  }
+ },
+ "machine": [
+  {
+   "parts": [
+    "COT",
+    9,
+    4,
+    1017
+   ],
+   "code": "BJ-COT-09-004-1017-2"
+  },
+  {
+   "parts": [
+    "CAL",
+    2,
+    11,
+    1017
+   ],
+   "code": "BJ-CAL-02-011-1017-1"
+  },
+  {
+   "parts": [
+    "COT",
+    5,
+    5,
+    15217
+   ],
+   "code": "BJ-COT-05-005-15217-5"
+  }
+ ],
+ "remembered": [
+  {
+   "text": "Zogbo · 48 17",
+   "parsed": [
+    "Zogbo",
+    4817,
+    null
+   ]
+  },
+  {
+   "text": "Zogbo 4817",
+   "parsed": [
+    "Zogbo",
+    4817,
+    null
+   ]
+  },
+  {
+   "text": "Zongo · 15 170",
+   "parsed": [
+    "Zongo",
+    15170,
+    null
+   ]
+  },
+  {
+   "text": "Ganvié 1 · 12 03, Abomey-Calavi",
+   "parsed": [
+    "Ganvié 1",
+    1203,
+    "Abomey-Calavi"
+   ]
+  }
+ ],
+ "spokenFr": [
+  {
+   "number": 4817,
+   "fr": "quarante-huit dix-sept"
+  },
+  {
+   "number": 1203,
+   "fr": "douze zéro trois"
+  },
+  {
+   "number": 7091,
+   "fr": "soixante-dix quatre-vingt-onze"
+  },
+  {
+   "number": 8080,
+   "fr": "quatre-vingts quatre-vingts"
+  },
+  {
+   "number": 9971,
+   "fr": "quatre-vingt-dix-neuf soixante et onze"
+  },
+  {
+   "number": 15170,
+   "fr": "quinze cent soixante-dix"
+  },
+  {
+   "number": 19300,
+   "fr": "dix-neuf trois cents"
+  },
+  {
+   "number": 10070,
+   "fr": "dix zéro soixante-dix"
+  },
+  {
+   "number": 21105,
+   "fr": "vingt et un cent cinq"
+  }
+ ],
+ "normalised": [
+  {
+   "name": "Zogbo",
+   "key": "zogbo"
+  },
+  {
+   "name": "Gbèdji",
+   "key": "gbeji"
+  },
+  {
+   "name": "Gbedji",
+   "key": "gbeji"
+  },
+  {
+   "name": "Gbédji",
+   "key": "gbeji"
+  },
+  {
+   "name": "Ganvié I",
+   "key": "ganvie1"
+  },
+  {
+   "name": "Ganvié 1",
+   "key": "ganvie1"
+  },
+  {
+   "name": "Ganvie 1er",
+   "key": "ganvie1"
+  },
+  {
+   "name": "Ouèssè",
+   "key": "wese"
+  },
+  {
+   "name": "Wèssè",
+   "key": "wese"
+  },
+  {
+   "name": "Tchetti",
+   "key": "ceti"
+  },
+  {
+   "name": "Ceti",
+   "key": "ceti"
+  },
+  {
+   "name": "Ouémè Hounli",
+   "key": "wemehounli"
+  },
+  {
+   "name": "Ouèmèhounli",
+   "key": "wemehounli"
+  },
+  {
+   "name": "Fifadji",
+   "key": "fifaji"
+  },
+  {
+   "name": "La Haie Vive",
+   "key": "haievive"
+  },
+  {
+   "name": "Haie-Vive",
+   "key": "haievive"
+  },
+  {
+   "name": "Dassa",
+   "key": "dasa"
+  }
+ ],
+ "sameName": [
+  {
+   "text": "Zongo · 10 016",
+   "commune": "ATH",
+   "communeName": "Athiémé",
+   "arrondissement": 2,
+   "arrondissementName": "Athiémé",
+   "quartier": 82,
+   "quartierName": "Zongo",
+   "plateName": "Zongo",
+   "machine": "BJ-ATH-02-082-10016-1",
+   "at": [
+    6.587548,
+    1.672296
+   ]
+  },
+  {
+   "text": "Zongo · 10 316",
+   "commune": "ATH",
+   "communeName": "Athiémé",
+   "arrondissement": 4,
+   "arrondissementName": "Kpinnou",
+   "quartier": 33,
+   "quartierName": "Zongo",
+   "plateName": "Zongo",
+   "machine": "BJ-ATH-04-033-10316-8",
+   "at": [
+    6.588608,
+    1.745025
+   ]
+  },
+  {
+   "text": "Agata · 10 16",
+   "commune": "ALL",
+   "communeName": "Allada",
+   "arrondissement": 6,
+   "arrondissementName": "Ayou",
+   "quartier": 1,
+   "quartierName": "Agata",
+   "plateName": "Agata",
+   "machine": "BJ-ALL-06-001-1016-9",
+   "at": [
+    6.711229,
+    2.084128
+   ]
+  },
+  {
+   "text": "Agata · 12 16",
+   "commune": "COT",
+   "communeName": "Cotonou",
+   "arrondissement": 6,
+   "arrondissementName": "6ème Arrondissement",
+   "quartier": 1,
+   "quartierName": "Agata",
+   "plateName": "Agata",
+   "machine": "BJ-COT-06-001-1216-2",
+   "at": [
+    6.385043,
+    2.42272
+   ]
+  },
+  {
+   "text": "Gbédji · 10 016",
+   "commune": "ALL",
+   "communeName": "Allada",
+   "arrondissement": 6,
+   "arrondissementName": "Ayou",
+   "quartier": 10,
+   "quartierName": "Gbédji",
+   "plateName": "Gbédji",
+   "machine": "BJ-ALL-06-010-10016-5",
+   "at": [
+    6.719995,
+    2.116966
+   ]
+  },
+  {
+   "text": "Gbédji · 10 416",
+   "commune": "ALL",
+   "communeName": "Allada",
+   "arrondissement": 9,
+   "arrondissementName": "Lon agame",
+   "quartier": 17,
+   "quartierName": "Gbédji",
+   "plateName": "Gbédji",
+   "machine": "BJ-ALL-09-017-10416-2",
+   "at": [
+    6.720853,
+    2.036464
+   ]
+  },
+  {
+   "text": "Ganvié 1 · 10 16",
+   "commune": "CAL",
+   "communeName": "Abomey-Calavi",
+   "arrondissement": 2,
+   "arrondissementName": "Calavi",
+   "quartier": 11,
+   "quartierName": "Ganvié 1",
+   "plateName": "Ganvié 1",
+   "machine": "BJ-CAL-02-011-1016-0",
+   "at": [
+    6.468823,
+    2.386458
+   ]
+  },
+  {
+   "text": "Ganvié 1 · 31 16",
+   "commune": "SOA",
+   "communeName": "Sô-Ava",
+   "arrondissement": 3,
+   "arrondissementName": "Ganvié I",
+   "quartier": 0,
+   "quartierName": "Ganvié I",
+   "plateName": "Ganvié I",
+   "machine": "BJ-SOA-03-000-3116-8",
+   "at": [
+    null,
+    null
+   ]
+  }
+ ],
+ "notIssued": [
+  "Zongo · 29 900",
+  "Agata · 30 00",
+  "Zogbo · 83 00",
+  "Zongo · 48 17"
+ ],
+ "plateNames": [
+  {
+   "area": [
+    "DJO",
+    8,
+    15
+   ],
+   "official": "Camp Peulh Soukoumpérou",
+   "plate": "Soukoumpérou",
+   "rule": "distinctive",
+   "needsCouncilChoice": false
+  },
+  {
+   "area": [
+    "ZAG",
+    6,
+    2
+   ],
+   "official": "Flessa (quartier des forgerons)",
+   "plate": "Flessa",
+   "rule": "cleaned",
+   "needsCouncilChoice": false
+  },
+  {
+   "area": [
+    "DJO",
+    12,
+    20
+   ],
+   "official": "Camp Peulh Tovari",
+   "plate": "Peulh Tovari",
+   "rule": "cleaned",
+   "needsCouncilChoice": false
+  },
+  {
+   "area": [
+    "COM",
+    5,
+    40
+   ],
+   "official": "Saint Prosper",
+   "plate": "St Prosper",
+   "rule": "abbreviated",
+   "needsCouncilChoice": false
+  },
+  {
+   "area": [
+    "KAR",
+    4,
+    17
+   ],
+   "official": "Poste forestier des Chutes de Koudou",
+   "plate": "Koudou",
+   "rule": "distinctive",
+   "needsCouncilChoice": false
+  },
+  {
+   "area": [
+    "BAN",
+    5,
+    22
+   ],
+   "official": "Finfingou Darissalam",
+   "plate": "Darissalam",
+   "rule": "distinctive",
+   "needsCouncilChoice": false
+  },
+  {
+   "area": [
+    "COT",
+    9,
+    4
+   ],
+   "official": "Zogbo",
+   "plate": "Zogbo",
+   "rule": "as-is",
+   "needsCouncilChoice": false
+  },
+  {
+   "area": [
+    "COT",
+    1,
+    9
+   ],
+   "official": "Tchanhounkpamè",
+   "plate": "Tchanhounkpamè",
+   "rule": "council",
+   "needsCouncilChoice": true,
+   "candidates": []
+  },
+  {
+   "area": [
+    "COT",
+    4,
+    1
+   ],
+   "official": "Akpakpa-Dodomè",
+   "plate": "Dodomè",
+   "rule": "council",
+   "needsCouncilChoice": true,
+   "candidates": [
+    "Dodomè",
+    "Akpakpa"
+   ]
+  },
+  {
+   "area": [
+    "COT",
+    12,
+    6
+   ],
+   "official": "Haie-Vive-Cocotiers",
+   "plate": "Haie-Vive",
+   "rule": "council",
+   "needsCouncilChoice": true,
+   "candidates": [
+    "Haie-Vive",
+    "Haie",
+    "Vive"
+   ]
+  }
+ ],
+ "officialAlias": [
+  {
+   "official": "Camp Peulh Soukoumpérou · 10 01",
+   "plate": "Soukoumpérou · 10 01",
+   "machine": "BJ-DJO-08-015-1001-2"
+  },
+  {
+   "official": "Flessa (quartier des forgerons) · 10 01",
+   "plate": "Flessa · 10 01",
+   "machine": "BJ-ZAG-06-002-1001-1"
+  },
+  {
+   "official": "Poste forestier des Chutes de Koudou · 10 01",
+   "plate": "Koudou · 10 01",
+   "machine": "BJ-KAR-04-017-1001-7"
+  },
+  {
+   "official": "Camp Peulh Tovari · 10 01",
+   "plate": "Peulh Tovari · 10 01",
+   "machine": "BJ-DJO-12-020-1001-6"
+  },
+  {
+   "official": "Saint Prosper · 10 01",
+   "plate": "St Prosper · 10 01",
+   "machine": "BJ-COM-05-040-1001-8"
+  }
+ ],
+ "collideAfterShortening": [
+  [
+   {
+    "text": "Flessa · 10 01",
+    "official": "Flessa (quartier des forgerons)",
+    "commune": "ZAG",
+    "communeName": "Zagnanado",
+    "arrondissement": 6,
+    "quartier": 2,
+    "machine": "BJ-ZAG-06-002-1001-1"
+   },
+   {
+    "text": "Fléssa · 14 01",
+    "official": "Fléssa",
+    "commune": "ZOG",
+    "communeName": "Zogbodomey",
+    "arrondissement": 3,
+    "quartier": 5,
+    "machine": "BJ-ZOG-03-005-1401-8"
+   }
+  ],
+  [
+   {
+    "text": "Gbégoudo · 10 01",
+    "official": "Vakon Gbégoudo",
+    "commune": "AKP",
+    "communeName": "Akpro-Missérété",
+    "arrondissement": 4,
+    "quartier": 15,
+    "machine": "BJ-AKP-04-015-1001-5"
+   },
+   {
+    "text": "Gbégoudo · 26 01",
+    "official": "Gbégoudo",
+    "commune": "ZEE",
+    "communeName": "Zè",
+    "arrondissement": 6,
+    "quartier": 6,
+    "machine": "BJ-ZEE-06-006-2601-2"
+   }
+  ]
+ ],
+ "plateRefused": [
+  "Awhouaganougon · 10 00",
+  "Dossoumongbonou · 10 00"
+ ],
+ "plateLength": [
+  {
+   "name": "Zogbo",
+   "length": 5,
+   "words": 1,
+   "ok": true
+  },
+  {
+   "name": "Ganvié 1",
+   "length": 8,
+   "words": 2,
+   "ok": true
+  },
+  {
+   "name": "Haie-Vive",
+   "length": 9,
+   "words": 2,
+   "ok": true
+  },
+  {
+   "name": "Dar Es Salam",
+   "length": 12,
+   "words": 2,
+   "ok": true
+  },
+  {
+   "name": "St Prosper",
+   "length": 10,
+   "words": 2,
+   "ok": true
+  },
+  {
+   "name": "Soukoumpérou",
+   "length": 12,
+   "words": 1,
+   "ok": true
+  },
+  {
+   "name": "Tchanhounkpamè",
+   "length": 14,
+   "words": 1,
+   "ok": false
+  },
+  {
+   "name": "Lém-Ferreira",
+   "length": 12,
+   "words": 2,
+   "ok": true
+  },
+  {
+   "name": "Camp Peulh Tovari",
+   "length": 17,
+   "words": 3,
+   "ok": false
+  },
+  {
+   "name": "Peulh Tovari",
+   "length": 12,
+   "words": 2,
+   "ok": true
+  }
+ ]
+}

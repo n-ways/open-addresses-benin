@@ -1,0 +1,57 @@
+{
+ "placeKinds": [
+  "suburb",
+  "quarter",
+  "neighbourhood",
+  "village"
+ ],
+ "places": 86,
+ "areasUsed": 75,
+ "compoundRatio": 0.813,
+ "compoundsPerArea": {
+  "p10": 142,
+  "p50": 1067,
+  "p90": 3377,
+  "max": 4124
+ },
+ "areasFitting": {
+  "3 digits (<=450)": 12,
+  "4 digits (<=4500)": 63,
+  "5 digits (<=45000)": 0,
+  "over": 0
+ },
+ "largest": [
+  [
+   "Zogbo",
+   4124
+  ],
+  [
+   "Agla",
+   4114
+  ],
+  [
+   "Zongo",
+   3954
+  ],
+  [
+   "Midombo",
+   3818
+  ],
+  [
+   "Kouhounou",
+   3807
+  ],
+  [
+   "Gbegamey",
+   3720
+  ],
+  [
+   "Menontin",
+   3525
+  ],
+  [
+   "Abokicodji-Lagune",
+   3377
+  ]
+ ]
+}

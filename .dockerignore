@@ -1,0 +1,13 @@
+# Build context of server/Dockerfile: only what the image copies is needed.
+.git
+**/__pycache__
+**/*.pyc
+**/.DS_Store
+data
+docs
+doors
+tools
+server/tests
+server/testdata
+*.sqlite
+*.sqlite-*

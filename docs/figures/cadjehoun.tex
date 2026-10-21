@@ -1,0 +1,19 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12cm, axis equal image, xmin=0, xmax=1774, ymin=0, ymax=1376,
+  xlabel={\T{metres east of the frame's west edge}{mètres à l'est du bord ouest du cadre}},
+  ylabel={\T{metres north}{mètres au nord}},
+  xtick={0,250,...,1750}, ytick={0,250,...,1250}, tick align=outside, xtick pos=bottom, ytick pos=left,
+  colormap={bj}{color(0)=(green!80!black) color(0.5)=(yellow!90!black) color(1)=(red)},
+  colorbar, colorbar style={ylabel={\T{number}{numéro}}, width=3mm, ytick={1000,1500,2000,2500,3000},
+    yticklabel style={font=\scriptsize}, /pgf/number format/1000 sep={}},
+  point meta=explicit, point meta min=1000, point meta max=3045]
+  \addplot[scatter, only marks, mark=*, mark size=0.9pt, scatter/use mapped color={draw=mapped color, fill=mapped color}]
+    table[x=x, y=y, meta=number] {cadjehoun.dat};
+  \addplot[only marks, mark=o, mark size=4pt, line width=0.9pt, black] coordinates {(131.7, 395.2)};
+  \node[anchor=south west, font=\scriptsize, fill=white, inner sep=1.5pt] at (axis cs:150,415) {\T{Cadjéhoun 18 07}{Cadjéhoun 18 07}};
+\end{axis}
+\end{tikzpicture}
+\end{document}

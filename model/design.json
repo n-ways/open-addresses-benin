@@ -1,0 +1,749 @@
+{
+ "country": "BJ",
+ "name": "Bénin",
+ "model": "Adresse N-Ways Bénin",
+ "version": "1.0",
+ "date": "2026-10-20",
+ "status": "issued 20 October 2026: 4,147,741 codes, one for every compound; registry public",
+ "designCriteria": [
+  "0. Official addresses first: where the State gives a door or street address (Cotonou 2013 plan; the 2026 national programme once delivered) it is shown first, exactly as written; every compound also has its N-Ways code beside it",
+  "1. Easy to remember and easy to get: a short plate name (at most 12 characters and 2 words) taken from the place name people already use + a 4-digit number read in two pairs (5 digits for the 134 names whose areas need more than 9,000 numbers); unique in all of Benin on its own, with no commune or app position; nothing to learn by heart beyond that",
+  "2. The compound (concession) is the unit; the gate is the primary entrance",
+  "3. Every structure carries a building profile with source and confirmation date per attribute",
+  "4. Works offline; open method and data",
+  "5. Stable: a code never moves or changes; renames only change aliases",
+  "6. Beside official systems: points to Cotonou street codes, ANDF parcels and the 2026 national strategy; never called a postcode or official",
+  "7. Privacy: codes describe places, never people"
+ ],
+ "existingSystems": {
+  "verdict": "no postal codes; door-level street addresses only in parts of Cotonou (2013 plan); national strategy authorised 22 Apr 2026, format unpublished",
+  "details": "docs/existing-systems.md"
+ },
+ "forms": {
+  "remembered": {
+   "pattern": "<plate name> · <NN NN> (or <NN NNN> for a five-digit name)",
+   "example": "Zogbo · 46 17",
+   "spokenFr": "Zogbo, quarante-six dix-sept",
+   "rules": [
+    "the name is the area's plate name: at most 12 characters and 2 words (nationalNames.plateNames)",
+    "number 4 digits (1000-9999), read as two pairs; 5 digits (10000-99999) for names whose national range needs it, read like a French postcode ('15 170' = 'quinze cent soixante-dix')",
+    "no letters, no check digit",
+    "unique nationally on its own: the name's national range and frozen blocks give one area; no commune, no app position needed",
+    "a commune after a comma is accepted only if it is the right one; it never chooses between areas"
+   ],
+   "example5": {
+    "text": "Zongo · 15 200",
+    "spokenFr": "Zongo, quinze deux cents"
+   }
+  },
+  "written": {
+   "pattern": "<plate name> · <NN NN>",
+   "example": "Zogbo · 46 17",
+   "plateSmallPrint": "official area name when it differs from the plate name (Camp Peulh Soukoumpérou), commune and arrondissement in small type (Cotonou · 9e arr.), as a help to the eye only"
+  },
+  "machine": {
+   "pattern": "BJ-<COMMUNE 3 letters>-<arrondissement 2d>-<quartier 3d>-<number 4d or 5d>-<Damm>",
+   "example": "BJ-COT-09-004-4617-4",
+   "regex": "^BJ-[A-Z]{3}-\\d{2}-\\d{3}-\\d{4,5}-\\d$",
+   "checkDigitsOver": "national name index (5 digits) + number (5 digits, zero-padded); the area digits are verified against the frozen block table"
+  },
+  "structure": {
+   "pattern": "<compound> .<n>",
+   "example": "Zogbo · 46 17 .2",
+   "note": "structure 1 = largest (main house)"
+  },
+  "entrance": {
+   "pattern": "<compound> /<n>",
+   "example": "Zogbo · 46 17 /2",
+   "note": "entrance 1 = main gate, implied"
+  },
+  "spot": {
+   "pattern": "<COMMUNE> <arr> · <3 chars> <3-5 chars>",
+   "example": "COT 09 · 25R FH7",
+   "machine": "BJ-COT-09-S-25RFH7",
+   "note": "shared by link/QR, not memorised"
+  },
+  "link": "https://nways.ng/a/<machine>",
+  "optionsEvaluated": "docs/model.md section 1.2",
+  "plateRule": "where an official door number of the 2013 plan exists, the gate keeps that number; N-Ways adds only a QR sticker on request"
+ },
+ "hierarchy": {
+  "levels": [
+   {
+    "level": "département",
+    "count": 12,
+    "inCode": false,
+    "why": "too large (Atacora, Alibori, Borgou, Collines need 8-char spot codes; 0.3-0.94 M structures each) and not what people say"
+   },
+   {
+    "level": "commune",
+    "count": 77,
+    "inCode": "3-letter key",
+    "keys": "tools/build_keys.py COMMUNES"
+   },
+   {
+    "level": "arrondissement",
+    "count": 546,
+    "inCode": "2-digit number",
+    "numbering": "official ordinal where the name has one (Cotonou 1-13, Porto-Novo 1-5, Parakou 1-3, Natitingou 1-4, Djougou 1-3, Bohicon 1-2...), else alphabetical rank after the ordinals; frozen at first issue",
+    "why": "Cotonou street codes start with the arrondissement number (Rue 12.217); spot frames"
+   },
+   {
+    "level": "village / quartier de ville",
+    "count": 5290,
+    "inCode": "3-digit index + the spoken name",
+    "law": "Loi 2013-05 du 27 mai 2013 (annex: 5290 villages et quartiers de ville; Cotonou 165)",
+    "index": "alphabetical rank of the named OSM places of the arrondissement (model/keys.json, 12,932 places), frozen at first issue; the Loi 2013-05 annex maps onto it through aliases"
+   }
+  ]
+ },
+ "codeAreas": {
+  "definition": "a quartier or village of an arrondissement, named after it; a point belongs to the area whose frozen place point is nearest in its arrondissement",
+  "construction": [
+   "the named OSM places of each arrondissement, frozen at first issue with their place points and numbering frames",
+   "an arrondissement with no named place has one area, index 000, named after it",
+   "an area of more than 4,250 compounds takes five digits and keeps one block (118 areas: Ladji Farani, Lokossa, Cococodji, Tanguiéta, Malanville...); its official quartiers become aliases when published"
+  ],
+  "evidence": {
+   "cotonouDesign": "model/stats/capital-areas.json: 75 areas, compounds p50 1,067, p90 3,377, max 4,124 (Zogbo)",
+   "nationalDesign": "model/stats/national-areas.json: 12,892 areas, p50 114, p90 707, p99 3,691, max 19,349; 84.4% of compounds in areas fitting 3-4 digits",
+   "issued": "model/stats/building-stats.json: 4,147,741 compounds in 12,845 areas (119 areas have none)"
+  },
+  "aliases": "spoken-name alias table; renames/re-districting change aliases only"
+ },
+ "nationalNames": {
+  "rule": "the remembered code is unique nationally on its own: one area in four shares its name, and a code is said and written far from where it was issued, so context (commune, app position) cannot be relied on",
+  "normalisation": {
+   "function": "engine bj_engine.norm_name (SPEC 7.1)",
+   "steps": [
+    "Gbe letters ɔ ɛ ɖ ŋ ƒ ʋ ɣ -> o e d ng f v g; œ -> oe",
+    "NFKD, drop accents, lower case",
+    "split on non-alphanumerics (spaces, hyphens, apostrophes, dots)",
+    "drop a leading French article le/la/les/l'",
+    "trailing Roman numeral or ordinal -> digit (Ganvié I = Ganvié 1 = Ganvié 1er)",
+    "plate abbreviations St/Ste read as Saint/Sainte",
+    "join words",
+    "fold spellings: tch->c, dj->j, ph->f, ou before a vowel->w, doubled letters->one"
+   ],
+   "examples": {
+    "Gbèdji / Gbedji / Gbédji": "gbeji",
+    "Ouèssè / Wèssè": "wese",
+    "Tchetti / Ceti": "ceti",
+    "Ganvié I / Ganvié 1": "ganvie1"
+   },
+   "appliesTo": "the plate name of each area; the official name is an alias when it maps to one plate name"
+  },
+  "plateNames": {
+   "rule": "the remembered name is at most 12 characters and 2 words: it is said on the phone and painted on a gate",
+   "limit": {
+    "characters": 12,
+    "words": "parts between spaces or hyphens; linking words (de, du, des, la, le, les, l', d', et, sur, es) do not count",
+    "counting": "every character of the NFC form counts one: letters (an accented letter is one), spaces, hyphens, apostrophes",
+    "digits": "allowed: an ordinal that is part of the name (Ganvié 1, Adja 2); the written form keeps it apart from the number with '·'"
+   },
+   "twoNames": "officialName = full name of the area (small print, never required); plateName = the name in the code",
+   "derivation": [
+    "documented short form (known table, with source) (none recorded yet)",
+    "clean: close a one-sided spaced hyphen (\"Lèlè- Honmèho\" -> \"Lèlè-Honmèho\"), drop quotation marks; drop text in brackets, after a slash, mapping placeholders; drop French generic words (Quartier, Cité, Lotissement, Zone, Secteur, Village, Village de, Hameau, Campement, Site des logements sociaux); \"Camp Peulh X\" -> \"Peulh X\"",
+    "fits after cleaning -> plate name",
+    "Saint/Sainte -> St/Ste when that makes it fit (the key expands them back)",
+    "else the most distinctive run of whole words (rarest words nationally, preference for the end of the name), taken only when clearly ahead and not a town in the avoid list",
+    "else needsCouncilChoice with up to 3 candidates; the first is used provisionally and the area is issued under it; the commune may choose once, and its choice becomes an alias",
+    "a word is never cut; a name a person carries (Aladji X, Orou X, Bio X, Sabi X) is never split",
+    "a hyphenated name with no fitting run: its parts are candidates, never an automatic choice"
+   ],
+   "weakWords": "never a plate name alone; after the name they are qualifiers only the commune may drop: Peulh, Bariba, Gando, Dendi, Haoussa, Gah, Gouré, Gnel, Kparou, Camp, Centre, Gare, Plage, Barrage, Carrefour, Marché, Nord, Sud, Est, Ouest, an ordinal",
+   "avoid": "a plate never equals another town: the 77 commune seats (with Calavi, Dassa, Missérété, Sèmè, Bossito), the 12 department names, the big towns and names of the four neighbouring countries; the area's own commune is allowed",
+   "aliases": "normalised official name -> plate name in model/names.json when it maps to one plate name and is not another area's plate name; otherwise listed in aliasesDropped",
+   "engine": "bj_engine.plate_ok / remembered refuse a name over the limit unless it is the provisional name of a flagged area; every flagged area is issued under its provisional name",
+   "tool": "tools/bj_plates.py (Benin settings) + engine/reference/plate_names.py (the rule)",
+   "fields": "model/keys.json places: plate (when it differs), plateRule (as-is, cleaned, abbreviated, known, distinctive, council), needsCouncilChoice, plateCandidates (<= 3), plateReason",
+   "counts2026": {
+    "areas": 12964,
+    "officialOverLimit": {
+     "chars": 1794,
+     "words": 191,
+     "either": 1805
+    },
+    "plateRules": {
+     "abbreviated": 1,
+     "as-is": 11134,
+     "cleaned": 70,
+     "council": 1299,
+     "distinctive": 460
+    },
+    "needsCouncilChoice": 1300,
+    "flaggedWithFittingCandidate": 619,
+    "stillOverLimit": 681,
+    "collisionsBefore": {
+     "names": 11208,
+     "sharedNames": 1024,
+     "areasInSharedNames": 2780
+    },
+    "collisionsAfter": {
+     "names": 10841,
+     "sharedNames": 1265,
+     "areasInSharedNames": 3388
+    },
+    "namesSharedOnlyAfterShortening": 337,
+    "aliases": 1109,
+    "aliasesDropped": 5,
+    "longestCode": {
+     "code": "Ôlorounchogo · 10 00",
+     "length": 20
+    }
+   },
+   "examples": [
+    {
+     "official": "Camp Peulh Soukoumpérou",
+     "plate": "Soukoumpérou",
+     "rule": "distinctive"
+    },
+    {
+     "official": "Flessa (quartier des forgerons)",
+     "plate": "Flessa",
+     "rule": "cleaned"
+    },
+    {
+     "official": "Camp Peulh Tovari",
+     "plate": "Peulh Tovari",
+     "rule": "cleaned"
+    },
+    {
+     "official": "Saint Prosper",
+     "plate": "St Prosper",
+     "rule": "abbreviated"
+    },
+    {
+     "official": "Poste forestier des Chutes de Koudou",
+     "plate": "Koudou",
+     "rule": "distinctive"
+    },
+    {
+     "official": "Akpakpa-Dodomè",
+     "plate": "Dodomè (provisional)",
+     "rule": "council",
+     "candidates": [
+      "Dodomè",
+      "Akpakpa"
+     ]
+    }
+   ]
+  },
+  "range": {
+   "4": [
+    1000,
+    9999
+   ],
+   "5": [
+    10000,
+    99999
+   ]
+  },
+  "block": "one per area: max(200, ceil(2 x compounds / 100) x 100), at most 85,000; laid end to end from the bottom of the range in area-key order (commune, arrondissement, quartier index)",
+  "spare": {
+   "4": 500,
+   "5": 5000,
+   "use": "future areas with the same name and extension blocks for full areas"
+  },
+  "digitsRule": "4 if blocks + 500 <= 9,000; else 5 if blocks + 5,000 <= 90,000; else qualifier",
+  "nameIndex": "national 1-99,999, frozen; check-digit input",
+  "decode": "normalise name -> range -> block containing the number -> one area; numbers in spare space are not issued",
+  "frozen": [
+   "block table frozen at first issue",
+   "blocks never moved, resized or renumbered",
+   "a name's digit count never changes",
+   "new area with an existing name -> next block from the name's spare space",
+   "full area -> extension block from the spare space",
+   "spare exhausted -> the new area takes the name's listed qualifier"
+  ],
+  "qualifiers": {
+   "rule": "one established qualifier people already say, decided once per name and listed here",
+   "list": [],
+   "note": "none needed: the largest range of any name (Ladji Farani) holds 46,100 of its 90,000 numbers"
+  },
+  "table": "model/names.json",
+  "tool": "tools/name_ranges.py",
+  "stats": "model/stats/name-ranges.json",
+  "counts2026": {
+   "areas": 12964,
+   "names": 10841,
+   "repeatingNames": 1265,
+   "areasWithRepeatingNames": 3388,
+   "shareOfAreas": 0.261,
+   "repeatingNamesByAreaCount": {
+    "2": 887,
+    "3": 203,
+    "4": 85,
+    "5": 32,
+    "6": 20,
+    "7": 13,
+    "8": 4,
+    "9": 5,
+    "10": 3,
+    "11": 5,
+    "12": 1,
+    "13": 2,
+    "14": 1,
+    "15": 1,
+    "19": 1,
+    "20": 1,
+    "26": 1
+   },
+   "namesByDigits": {
+    "4": 10707,
+    "5": 134
+   },
+   "areasWithFiveDigits": 299,
+   "largestSharedRange": {
+    "name": "Gouré Tépel",
+    "areas": 2,
+    "numbersInBlocks": 38800,
+    "range": [
+     10000,
+     48799
+    ],
+    "digits": 5
+   },
+   "mostRepeated": {
+    "name": "Zongo",
+    "areas": 26,
+    "numbersInBlocks": 19900,
+    "digits": 5
+   },
+   "basis": "issued register; on official names: 11,208 names, 1,024 shared by 2,780 areas",
+   "largestRange": {
+    "name": "Ladji Farani",
+    "areas": 1,
+    "compounds": 23009,
+    "numbersInBlocks": 46100,
+    "range": [
+     10000,
+     56099
+    ],
+    "digits": 5
+   },
+   "areasOver4250Compounds": 118
+  },
+  "examples": [
+   {
+    "text": "Zongo · 15 200",
+    "area": "Zongo, 5e arr., Cotonou",
+    "machine": "BJ-COT-05-005-15200-4"
+   },
+   {
+    "text": "Zongo · 19 500",
+    "area": "Zongo, 1er arr., Djougou",
+    "machine": "BJ-DJO-01-040-19500-0"
+   },
+   {
+    "text": "Agata · 15 00",
+    "area": "Agata, 6e arr., Cotonou",
+    "machine": "BJ-COT-06-001-1500-8"
+   },
+   {
+    "text": "Agata · 26 00",
+    "area": "Agata, Dangbo",
+    "machine": "BJ-DAN-01-001-2600-0"
+   }
+  ]
+ },
+ "numbering": {
+  "nationalRange": "per normalised name: 1000-9999 (4 digits) or 10000-99999 (5 digits); see nationalNames",
+  "digits": "4, or 5 for names whose blocks + 500 exceed 9,000",
+  "capacityRule": "block = max(200, ceil(2 x compounds / 100) x 100), at most 85,000",
+  "order": "Hilbert curve (order 16) over the code area's frozen frame, over compound reference points (structures are grouped first)",
+  "mainBlock": "first two thirds of the area's block",
+  "step": "s = max(1, floor(floor(2B/3) / N)) for a block of size B",
+  "tailReserve": "top third of the area's block",
+  "newCompound": "free number between the Hilbert neighbours' numbers, closest to their midpoint; else the lowest free number in the block's tail reserve; a full block gets an extension block from the name's spare space",
+  "neverReused": true,
+  "demolished": "retired",
+  "split": "the part with the gate keeps the code; the rest gets a new number",
+  "merged": "oldest code survives; the other becomes an alias"
+ },
+ "checkDigit": {
+  "algorithm": "Damm (decimal, quasigroup of order 10)",
+  "detects": [
+   "every single-digit error",
+   "every adjacent transposition",
+   "in the number, including one that would land in another area with the same name (tested exhaustively on real blocks)"
+  ],
+  "shownOn": [
+   "machine code",
+   "QR links"
+  ],
+  "remembered": false,
+  "over": "Damm(name index 5d || number 5d)",
+  "binds": "name + number + area: name and number fix the area through the frozen block table; machine-form area digits are checked against that table",
+  "whyAreaNotInSum": "a typo in the number can also change its area; with two inputs changed Damm would lose its guarantee"
+ },
+ "spotGrid": {
+  "crs": "WGS 84 / UTM zone 31N (EPSG:32631)",
+  "why": "all of Benin (0.77-3.85°E) is in zone 31N; ANDF cadastre uses EPSG:32631; survey beacons import without reprojection",
+  "cellMetres": 3,
+  "alphabet": "23456789CFGHJMPQRVWX",
+  "frame": "per arrondissement: origin = SW corner of its outline rounded down to 1 km; 3 chars per axis (24 km) or 4 (480 km)",
+  "interleave": "northing and easting characters alternate from the most significant",
+  "lengths": {
+   "6": 406,
+   "7": 58,
+   "8": 82
+  },
+  "decode": "cell centre"
+ },
+ "compound": {
+  "localNames": [
+   "concession",
+   "cour",
+   "parcelle",
+   "maison",
+   "portail = gate"
+  ],
+  "types": [
+   "concession familiale / cour",
+   "villa en parcelle clôturée",
+   "maison en bande / entrer-coucher",
+   "immeuble R+n",
+   "boutiques dans le mur",
+   "cité / lotissement à portail unique (estate)",
+   "tata somba / takienta",
+   "case et concession rurale sans mur",
+   "maison sur pilotis (Sô-Ava)"
+  ],
+  "grouping": {
+   "order": [
+    "mapped enclosure (OSM wall/fence/hedge closed, 30-6000 m²) -> confidence 0.85",
+    "annex attach: structure < 30 m² joins nearest structure >= 30 m² within 6 m -> 0.6",
+    "hut cluster (rural Borgou, Alibori, Atacora, Collines only): huts < 40 m² within 3 m chain, max 25 -> 0.5",
+    "single -> 0.4",
+    "people: 'ces bâtiments sont une seule maison', 'voici le portail'; consensus settles, nothing queued for review"
+   ],
+   "inputs": [
+    "OSM barrier=wall/fence/hedge, barrier=gate",
+    "N-Ways compounds.geojsonseq and gates.geojsonseq (routing build)",
+    "footprints (OSM, Google Open Buildings, Microsoft)",
+    "ANDF parcels when the landholder gives them",
+    "imagery",
+    "door confirmations"
+   ],
+   "regroupingNeverChangesIssuedCodes": true
+  },
+  "estate": "estate gate -> compound gate; estate is a container with its own gate record; compounds inside keep their numbers",
+  "cotonouStats": "model/stats/capital-stats.json: 135,878 structures -> 110,448 compounds (0.813); 1 structure 89,866; 2: 16,763; 3-5: 3,763; 6-10: 51; 11+: 5; by rule enclosure 111, annex 10,796, single 89,841; mapped enclosures median 1,251 m²; OSM gates 94"
+ },
+ "compoundProfile": {
+  "fields": {
+   "code": "machine code",
+   "areaName": "quartier/village",
+   "class": "residential-one-household | residential-multi-household | residential-multi-storey | mixed | commercial | institutional | industrial | unclassified",
+   "classConfidence": "0-1",
+   "plotM2": "enclosure or confirmed outline area",
+   "structures": "count",
+   "floorAreaM2": "sum of structures",
+   "entrances": "list (entrance 1 = main gate)",
+   "estate": "estate id or null",
+   "parcelRefs": "ANDF NUP / îlot+parcelle / TF when the landholder gives them (private unless the landholder publishes them)",
+   "groupingRule": "enclosure | annex | hut-cluster | single | confirmed",
+   "groupingConfidence": "0-1",
+   "status": "provisional | confirmed | retired",
+   "issuedAt": "date",
+   "confirmedAt": "date"
+  }
+ },
+ "structureProfile": {
+  "fields": {
+   "index": "1..n within the compound (1 = largest)",
+   "class": {
+    "values": [
+     "residential",
+     "commercial",
+     "office",
+     "government",
+     "education",
+     "health",
+     "religious",
+     "industrial",
+     "hospitality",
+     "transport",
+     "agricultural",
+     "mixed",
+     "annex",
+     "under_construction",
+     "ruin",
+     "unknown"
+    ],
+    "beninSubclasses": {
+     "residential": [
+      "concession familiale",
+      "villa",
+      "maison en bande / entrer-coucher",
+      "immeuble d'habitation",
+      "case",
+      "tata somba",
+      "maison sur pilotis"
+     ],
+     "commercial": [
+      "boutique",
+      "kiosque",
+      "magasin",
+      "supermarché",
+      "marché",
+      "station-service",
+      "banque",
+      "maquis/bar",
+      "salon"
+     ],
+     "government": [
+      "mairie",
+      "préfecture",
+      "ministère",
+      "commissariat",
+      "camp militaire"
+     ],
+     "religious": [
+      "église",
+      "mosquée",
+      "temple vodoun",
+      "couvent"
+     ]
+    }
+   },
+   "classConfidence": "0-1",
+   "classSource": "osm:building | osm:poi | nways-places | osm:landuse | size | default | door-confirmation | partner | add-my-home",
+   "footprintM2": "geodesic",
+   "perimeterM": "geodesic",
+   "heightM": "OSM height only (the Google/Microsoft height is a rendering filler and is not used)",
+   "floors": "OSM building:levels, else round(OSM height / 3) (at least 1), else 1",
+   "floorAreaM2": "footprint x floors",
+   "name": "businesses and public buildings only, as published in OSM or by the business or institution",
+   "status": "existing | under_construction | ruin | demolished",
+   "sources": "per attribute: {value, source, sourceId, confirmedAt}"
+  },
+  "inferenceConfidence": {
+   "osm:building": 0.85,
+   "osm:poi": 0.75,
+   "nways-places": 0.65,
+   "osm:landuse": 0.5,
+   "default-in-residential-landuse": 0.55,
+   "default": 0.45,
+   "size": [
+    0.3,
+    0.4
+   ],
+   "door-confirmation": 0.9,
+   "partner": 0.8,
+   "agreementBonus": 0.05
+  },
+  "cotonouDesignEstimate": {
+   "classMix": {
+    "residential": 0.97,
+    "commercial": 0.0167,
+    "industrial": 0.0026,
+    "annex": 0.0019,
+    "government": 0.0017,
+    "office": 0.0017,
+    "education": 0.0014,
+    "health": 0.0009,
+    "hospitality": 0.0008,
+    "religious": 0.0006
+   },
+   "evidenceShare": {
+    "default": 0.96,
+    "positiveEvidence": 0.04
+   },
+   "meanConfidence": 0.494,
+   "footprintM2": {
+    "p10": 19.6,
+    "p50": 68.4,
+    "p90": 241.2
+   },
+   "heightM": {
+    "p10": 3.8,
+    "p50": 5.3,
+    "p90": 6.6
+   },
+   "withHeight": 0.663,
+   "floors": {
+    "1": 108815,
+    "2": 27051,
+    "3+": 12
+   },
+   "floorAreaTotalM2": 17600813,
+   "footprintTotalM2": 15131644
+  },
+  "issued": "model/stats/building-stats.json (floors from OSM only)"
+ },
+ "entrances": {
+  "kinds": [
+   "gate",
+   "door",
+   "shop-door",
+   "estate-gate",
+   "landing",
+   "service"
+  ],
+  "fields": [
+   "spot",
+   "bearingToStreet",
+   "photo (the household's choice; private)",
+   "streetCode (Cotonou 'Rue 12.217')",
+   "metricDoorNumber ('N° 43')",
+   "confirmedSince"
+  ],
+  "lakeVillages": "Sô-Ava stilt houses: entrance 1 is the landing (ponton) reached by pirogue"
+ },
+ "addMyHome": {
+  "steps": [
+   "at the gate: GPS averaged a few seconds + one gate photo -> entrance 1",
+   "outline: tap corners on imagery | walk inside the wall with AR world tracking (ARKit/ARCore), anchored by GPS averaged over the walk, checked vs imagery and footprints | import the plan parcellaire (beacons typed or photographed; UTM 31N)",
+   "describe: households, structures, floors, use",
+   "provisional code at once: next reserved number in the quartier (between Hilbert neighbours, else tail reserve)",
+   "confirmed by deliveries/arrivals at the gate, no neighbour dispute, or new imagery/footprints"
+  ],
+  "safeguards": [
+   "an N-Ways code is an address, not a land title (shown in the flow)",
+   "overlaps with compounds or ANDF parcels flagged, not issued",
+   "gate on the outline; plausible size 20-20,000 m²; closed loop; GPS vs AR within 5 m",
+   "keeps outline + gate photo only",
+   "offline: spot code at once; compound code on next connection"
+  ],
+  "legal": {
+   "landLaw": "Loi 2013-01 Code foncier et domanial, amended Loi 2017-15",
+   "whoMaySurvey": "ingénieur géomètre agréé (art. 183 new)",
+   "parcels": "ANDF cadastre.bj: NUP, îlot, parcelle, TF; ~491,000 parcels 2021-2025; e-Foncier mandatory in 12 communes since 1 Jan 2025",
+   "datum": "WGS 84 / UTM 31N (EPSG:32631, cadastre.bj)"
+  }
+ },
+ "gettingTheCode": {
+  "app": "home card 'Votre adresse : Zogbo · 46 17' as soon as home is saved or the phone is at the gate; the code alone finds the compound anywhere in Benin",
+  "share": "one tap: WhatsApp/SMS message with link nways.ng/a/<machine>",
+  "plates": "gate plate / sticker with QR",
+  "partners": "couriers and partners look it up via the partner API",
+  "noUSSD": true,
+  "smsLookup": "not provided"
+ },
+ "languages": {
+  "official": "fr",
+  "national": [
+   "Fon (~20% first language)",
+   "Yoruba",
+   "Bariba/Baatonum",
+   "Fulfulde",
+   "Goun",
+   "Adja",
+   "Dendi",
+   "Mina",
+   "Ditammari"
+  ],
+  "reading": "numbers read in French pairs like phone numbers; Fon writes c='tch', x=velar fricative, no q: letters kept out of what people remember",
+  "spokenFrExample": {
+   "4817": "quarante-huit dix-sept",
+   "1203": "douze zéro trois",
+   "15170": "quinze cent soixante-dix"
+  }
+ },
+ "privacy": {
+  "law": "Loi 2017-20 Code du numérique, Livre V",
+  "authority": "APDP (Autorité de Protection des Données à caractère Personnel)",
+  "obligations": [
+   "prior declaration (art. 405)",
+   "authorisation for identifiers, interconnection, transfer abroad (art. 407, 391)"
+  ],
+  "public": [
+   "compound code",
+   "gate position",
+   "outline (1 m)",
+   "class, size, floors",
+   "business/public building name and hours"
+  ],
+  "private": [
+   "who confirmed",
+   "gate photos (household + active delivery only)",
+   "households",
+   "parcel refs unless the landholder publishes them",
+   "Add-my-home outline until confirmed"
+  ],
+  "never": [
+   "resident names",
+   "phone numbers",
+   "NPI/ANIP identity numbers"
+  ],
+  "privateDoor": "household may hide its entrance; code stays"
+ },
+ "interoperability": {
+  "cotonouStreetCodes": "Rue AA.SSS + metric door number stored on entrances; plates may carry both",
+  "nationalStrategy2026": "codes start with a NAME so never confused with a future official numeric code; mapping table + hand-over offered",
+  "laPoste": "BP kept as free text",
+  "andf": "parcel refs as cross-references",
+  "plusCodes": "spot codes convertible to coordinates and so to Plus Codes in the app"
+ },
+ "governance": "GOVERNANCE.md",
+ "data": {
+  "keys": "model/keys.json",
+  "units": "model/units/",
+  "places": "model/areas/osm-places.csv",
+  "stats": "model/stats/",
+  "regions": "model/regions.json (built by tools/stats.py)",
+  "names": "model/names.json",
+  "nameStats": "model/stats/name-ranges.json"
+ },
+ "unverified": [
+  "arrondissement outlines (geoBoundaries 2021): Cotonou 2e/3e missing; Ganvié misplaced; Cotonou/Sèmè edge mismatch; a corrected outline changes no issued code",
+  "repaired arrondissement names",
+  "quartier index is the OSM place rank; the Loi 2013-05 annex maps onto it through aliases",
+  "1,300 provisional plate names until the communes choose",
+  "compound ratio is a floor",
+  "class mix mostly default"
+ ],
+ "coverage": {
+  "rule": "where the State has addresses they are shown first, exactly as written; every compound also has its N-Ways code beside them",
+  "areas": [
+   {
+    "area": "Cotonou, doors numbered by the 2013 plan",
+    "official": "Commune of Cotonou plan d'adressage (PA2D 2013): 'N° <metres>, Rue <arr>.<street>'",
+    "dataObtainable": "not open; held by the commune (addressing cell, 2015 plan map); can be shared under a data-sharing agreement; 307 street codes in OSM as ref (ODbL); door numbers read from plates at door confirmation",
+    "nways": "official address shown first, exactly; the N-Ways code beside it; no competing plate; gate position, building profile and spot code added"
+   },
+   {
+    "area": "Cotonou, no official door number",
+    "official": "coded street (2013 plan) within 30 m",
+    "dataObtainable": "same",
+    "nways": "official street shown first (17,948 compounds); the N-Ways code beside it; a door number replaces the street once known"
+   },
+   {
+    "area": "2026 pilot towns (Abomey-Calavi, Cotonou, Ouidah, Porto-Novo, Sèmè-Podji, Parakou)",
+    "official": "national strategy CM 22 Apr 2026 (nothing delivered)",
+    "dataObtainable": "not yet",
+    "nways": "N-Ways codes; the official addresses are shown first once delivered; no N-Ways code changes"
+   },
+   {
+    "area": "rest of Benin",
+    "official": "none",
+    "dataObtainable": "-",
+    "nways": "N-Ways compound and spot codes"
+   },
+   {
+    "area": "everywhere",
+    "official": "La Poste BP (not an address)",
+    "dataObtainable": "-",
+    "nways": "free text pointer"
+   }
+  ],
+  "officialAddressRecord": {
+   "text": "exactly as officially written, e.g. 'N° 43, Rue 12.217'",
+   "streetCode": "12.217",
+   "doorNumber": "43",
+   "authority": "Commune de Cotonou",
+   "source": "official-dataset | osm-ref | plate-read-at-door-confirmation",
+   "syncedAt": "date",
+   "licence": "as agreed with the holder"
+  },
+  "addressSource": [
+   "official",
+   "nways",
+   "nways-interim"
+  ],
+  "sync": "re-import the holder's dataset on each release (or monthly when shared by API); an official address arriving on a compound is shown first and the N-Ways code stays beside it, still resolving"
+ }
+}

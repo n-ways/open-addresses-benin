@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this model, its registry or its paper, please cite it as below."
+title: "N-Ways Addressing for Benin"
+abstract: >-
+  An addressing model, reference engine, registry and server that give every compound
+  in Benin a code made of the name of its quartier or village and a number of four or
+  five digits, unique in the whole country on its own (4,147,741 codes issued on
+  20 October 2026).
+authors:
+  - name: "The N-Ways Addressing Group"
+    address: "N-WAYS LIMITED"
+    website: "https://nways.ng"
+    email: "hello@nways.ng"
+date-released: 2026-10-20
+url: "https://github.com/n-ways/open-addresses-benin"
+repository-code: "https://github.com/n-ways/open-addresses-benin"
+license:
+  - Apache-2.0
+  - ODbL-1.0
+  - CC-BY-4.0
+keywords:
+  - addressing
+  - Benin
+  - postal address
+  - geocoding
+  - Hilbert curve
+  - Damm check digit
+  - open data
+preferred-citation:
+  type: report
+  title: "A code for every compound: the N-Ways addressing model for Benin"
+  authors:
+    - name: "The N-Ways Addressing Group"
+  institution:
+    name: "N-WAYS LIMITED"
+  year: 2026
+  month: 10
+  url: "https://github.com/n-ways/open-addresses-benin/blob/main/docs/paper.md"
+  languages:
+    - en
+    - fr
+  license: CC-BY-4.0

@@ -1,0 +1,28 @@
+{
+ "areas": 12964,
+ "areasWithCompounds": 12845,
+ "compounds": 4147741,
+ "cotonou": {
+  "areas": 72,
+  "compounds": 104101
+ },
+ "nameKeys": 10841,
+ "sharedNames": 1265,
+ "areasInSharedNames": 3388,
+ "compoundsInSharedNames": 1140780,
+ "areasByDigits": {
+  "4": 12665,
+  "5": 299
+ },
+ "compoundsByDigits": {
+  "4": 3241198,
+  "5": 906543
+ },
+ "provisionalNames": 1300,
+ "compoundsWithProvisionalNames": 391974,
+ "largestArea": {
+  "key": "PKO-03-004",
+  "name": "Ladji Farani",
+  "compounds": 23009
+ }
+}

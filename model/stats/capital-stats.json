@@ -1,0 +1,172 @@
+{
+ "buildings": 135878,
+ "bySource": {
+  "ml": 90067,
+  "osm": 45811
+ },
+ "classMix": {
+  "residential": {
+   "count": 131800,
+   "share": 0.97
+  },
+  "commercial": {
+   "count": 2265,
+   "share": 0.0167
+  },
+  "industrial": {
+   "count": 358,
+   "share": 0.0026
+  },
+  "annex": {
+   "count": 264,
+   "share": 0.0019
+  },
+  "government": {
+   "count": 237,
+   "share": 0.0017
+  },
+  "office": {
+   "count": 230,
+   "share": 0.0017
+  },
+  "education": {
+   "count": 192,
+   "share": 0.0014
+  },
+  "agricultural": {
+   "count": 141,
+   "share": 0.001
+  },
+  "health": {
+   "count": 126,
+   "share": 0.0009
+  },
+  "hospitality": {
+   "count": 115,
+   "share": 0.0008
+  },
+  "religious": {
+   "count": 85,
+   "share": 0.0006
+  },
+  "leisure": {
+   "count": 30,
+   "share": 0.0002
+  },
+  "transport": {
+   "count": 15,
+   "share": 0.0001
+  },
+  "under_construction": {
+   "count": 9,
+   "share": 0.0001
+  },
+  "ruin": {
+   "count": 7,
+   "share": 0.0001
+  },
+  "mixed": {
+   "count": 4,
+   "share": 0.0
+  }
+ },
+ "classEvidence": {
+  "default": 130514,
+  "osm:landuse": 2121,
+  "osm:building": 1560,
+  "places:inside": 1371,
+  "size": 224,
+  "osm:poi-tag": 84,
+  "agreement": 4
+ },
+ "meanClassConfidence": 0.494,
+ "footprintM2": {
+  "p10": 19.6,
+  "p25": 33.2,
+  "p50": 68.4,
+  "p75": 141.7,
+  "p90": 241.2
+ },
+ "perimeterM": {
+  "p10": 18.2,
+  "p25": 24.0,
+  "p50": 34.9,
+  "p75": 51.5,
+  "p90": 68.7
+ },
+ "heightM": {
+  "p10": 3.8,
+  "p25": 4.4,
+  "p50": 5.3,
+  "p75": 6.1,
+  "p90": 6.6
+ },
+ "withHeight": 0.6629,
+ "floors": {
+  "1": 108815,
+  "2": 27051,
+  "3": 6,
+  "4": 3,
+  "6": 2,
+  "5": 1
+ },
+ "floorSource": {
+  "ml:h": 90067,
+  "default": 45793,
+  "osm:building:levels": 18
+ },
+ "floorAreaTotalM2": 17600813,
+ "footprintAreaTotalM2": 15131644,
+ "sizeBands": {
+  "10-30": 28782,
+  "80-200": 40565,
+  "30-80": 45962,
+  "200-1000": 19549,
+  "1000+": 422,
+  "<10": 598
+ },
+ "compounds": 110448,
+ "structuresPerCompound": {
+  "2": 16763,
+  "1": 89866,
+  "3-5": 3763,
+  "6-10": 51,
+  "11+": 5
+ },
+ "compoundsByRule": {
+  "annex": 9700,
+  "single": 89841,
+  "annex-host": 10796,
+  "enclosure": 111
+ },
+ "compoundClass": {
+  "residential-one-household": 89395,
+  "residential-multi-household": 13585,
+  "other": 4201,
+  "commercial": 2320,
+  "institutional": 589,
+  "industrial": 314,
+  "mixed": 39,
+  "residential-multi-storey": 5
+ },
+ "mappedEnclosureAreaM2": {
+  "p10": 406.0,
+  "p25": 646.0,
+  "p50": 1251.0,
+  "p75": 2545.0,
+  "p90": 4597.0
+ },
+ "compoundFloorAreaM2": {
+  "p10": 39.6,
+  "p25": 63.2,
+  "p50": 110.0,
+  "p75": 194.8,
+  "p90": 316.0
+ },
+ "buildingsInEstateEnclosures": 1801,
+ "params": {
+  "annex_m2": 30,
+  "attach_m": 6,
+  "hut_m2": 0
+ }
+}

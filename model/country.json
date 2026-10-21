@@ -1,0 +1,175 @@
+{
+  "country": "BJ",
+  "name": "Benin",
+  "languages": [
+    "fr"
+  ],
+  "alphabet": "23456789CFGHJMPQRVWX",
+  "cellMetres": 3.0,
+  "buildingHeadroom": 2.0,
+  "regionLevel": "first-level division (ISO 3166-2), as in the N-Ways regions table",
+  "regions": 12,
+  "buildings": 5174482,
+  "spotCodeLengths": [
+    6,
+    7,
+    8
+  ],
+  "buildingCodeLengths": [
+    5
+  ],
+  "regionsToSubdivide": [
+    "BJ-AK",
+    "BJ-AL",
+    "BJ-BO",
+    "BJ-CO"
+  ],
+  "spoken": {
+    "fr": {
+      "2": "deux",
+      "3": "trois",
+      "4": "quatre",
+      "5": "cinq",
+      "6": "six",
+      "7": "sept",
+      "8": "huit",
+      "9": "neuf",
+      "C": "cé",
+      "F": "effe",
+      "G": "gé",
+      "H": "ache",
+      "J": "ji",
+      "M": "emme",
+      "P": "pé",
+      "Q": "ku",
+      "R": "erre",
+      "V": "vé",
+      "W": "double vé",
+      "X": "ixe"
+    }
+  },
+  "existing": {
+    "system": "No national postcode system. La Poste du Bénin addresses use P.O. boxes: in Cotonou, Porto-Novo, Abomey and Parakou a two-digit delivery-office prefix precedes the box (e.g. '10 BP 648, COTONOU'). Cotonou has a municipal street-numbering plan (Cellule municipale d'adressage, launched 2013; streets coded by arrondissement, e.g. 'Rue 12.048'), but signage is sparse.",
+    "status": "Re-checked 2026-10-12: still no live address or postcode system. On 22 April 2026 the Council of Ministers authorised a national strategy for standardising street and door addressing ('nouveau système d'adressage innovant et participatif, numérique et géolocalisé'), first in Abomey-Calavi, Cotonou, Ouidah, Porto-Novo, Sèmè-Podji and Parakou, through a specialised consultancy; no ministry, timeline, format, platform, tender or progress report has been published since. Plan only.",
+    "openData": "None usable: no open street-address dataset from any official programme. OpenStreetMap (ODbL) holds 946 house numbers in the whole country.",
+    "openAlgorithm": "None published.",
+    "terms": "No licence published for any official address dataset.",
+    "recommendation": "The N-Ways code (docs/model.md: plate name + number, unique nationally) is the shareable address of every compound, shown beside any official address; spot codes and N-Ways' landmark descriptions for any other point; 'BP' boxes kept as free text. No postcode is invented. The addresses of the 2026 national strategy are shown first once delivered.",
+    "sources": [
+      {
+        "url": "https://www.upu.int/UPU/media/upu/PostalEntitiesFiles/addressingUnit/benEn.pdf",
+        "kind": "official",
+        "note": "UPU addressing sheet for Benin, 11/2025"
+      },
+      {
+        "url": "https://sgg.gouv.bj/cm/2026-04-22/",
+        "kind": "official",
+        "note": "CM of 22 April 2026, II-1"
+      },
+      {
+        "url": "https://lanouvelletribune.info/2013/11/plan-d-adressage-de-la-ville-de-cotonou-la-cooperation-francaise-aide-la-municipalite-a-entrer-dans-la-modernite/",
+        "kind": "press"
+      },
+      {
+        "url": "https://lists.openstreetmap.org/pipermail/tagging-fr/2017-September/000010.html",
+        "kind": "osm"
+      },
+      {
+        "url": "https://www.les4verites.bj/le-benin-reorganise-ladressage-des-voies-et-des-portes-dans-six-villes/",
+        "kind": "press",
+        "note": "22 Apr 2026, the six pilot towns"
+      },
+      {
+        "url": "https://adf-magazine.com/fr/2018/04/la-cartographie-met-de-lordre-dans-les-rues-du-benin/",
+        "kind": "press",
+        "note": "AFP 2018: Cotonou numbers generally not displayed"
+      },
+      {
+        "url": "https://cio-mag.com/le-benin-dematerialise-sa-gestion-fonciere-et-domaniale/",
+        "kind": "press",
+        "note": "e-Foncier / cadastre, 2019"
+      },
+      {
+        "url": "https://dialogue.finances.bj/actualites/ANDF_Modernisation administration foncière 25.11.2024_v11.pdf",
+        "kind": "official",
+        "note": "ANDF, 25 Nov 2024"
+      },
+      {
+        "url": "https://adressage.up.railway.app/",
+        "kind": "other",
+        "note": "Unofficial participatory addressing demonstrator"
+      },
+      {
+        "url": "https://overpass-api.de/api/interpreter",
+        "kind": "osm",
+        "note": "Overpass counts, 2026-10-12"
+      }
+    ],
+    "lastChecked": "2026-10-12",
+    "findings": [
+      {
+        "name": "National addressing strategy (CM 22 Apr 2026, II-1)",
+        "state": "plan",
+        "format": "not published",
+        "openData": "none",
+        "inOSM": false
+      },
+      {
+        "name": "Cotonou Cellule municipale d'adressage (PA2D, French cooperation, 2013; 'Plan d'adressage de Cotonou' map 2015)",
+        "state": "legacy, dormant (signs and numbers generally not displayed, AFP 2018; no update found 2022–2026)",
+        "format": "streets coded by arrondissement ('Rue 12.048'), door numbers roughly metres along the street, odd/even sides",
+        "openData": "none, no API",
+        "inOSM": "a few street names only"
+      },
+      {
+        "name": "'Adressage participatif' demonstrator (adressage.up.railway.app, Algorithme)",
+        "state": "unofficial demo ('aucun caractère officiel'), counters at 0",
+        "format": "proposed street names for the six pilot communes",
+        "openData": "says 'open' but no licence; dossier by email only",
+        "inOSM": false
+      },
+      {
+        "name": "ANDF cadastre / e-Foncier (cadastre.bj, cadastre.andf.bj)",
+        "state": "live (≈460,000 parcels in Feb 2023, mostly Cotonou)",
+        "format": "land title number, lot, quartier: parcel references, not addresses",
+        "openData": "no download, API or reuse licence found",
+        "inOSM": false
+      },
+      {
+        "name": "ANIP / ASIN / Bénin Révélé",
+        "state": "no digital-address product found (ANIP e-services issue a residence certificate only)",
+        "format": "n/a",
+        "openData": "none",
+        "inOSM": false
+      },
+      {
+        "name": "La Poste du Bénin",
+        "state": "P.O. boxes only, no postcodes",
+        "format": "'10 BP 648, COTONOU'",
+        "openData": "none",
+        "inOSM": false
+      },
+      {
+        "name": "Open data portals (data.gouv.bj, HDX)",
+        "state": "road datasets only (CENATEL 2006; World Bank AICD 2009, CC-BY 4.0; OSM extracts, ODbL)",
+        "format": "n/a",
+        "openData": "no address dataset",
+        "inOSM": "n/a"
+      }
+    ],
+    "osm": {
+      "checked": "2026-10-12",
+      "addrHousenumber": 946,
+      "addrStreet": 932,
+      "addrPostcode": 55,
+      "cotonouNamedHighwayWays": "483 of 5,116 (≈9%)",
+      "note": "Far too sparse for house-level geocoding; the 55 addr:postcode tags can't be real postcodes. No official address import listed on the OSM wiki.",
+      "query": "[out:json][timeout:250];area[\"ISO3166-1\"=\"BJ\"][admin_level=2]->.a;nwr[\"addr:housenumber\"](area.a);out count;"
+    }
+  },
+  "sources": {
+    "regions": "N-Ways regions (OpenStreetMap administrative boundaries, ODbL)",
+    "buildings": "OpenStreetMap (ODbL); Google Open Buildings (CC BY 4.0) and Microsoft building footprints (ODbL) via Overture Maps",
+    "existing": "SOURCES.md 1-47, summarised in docs/existing-systems.md"
+  }
+}

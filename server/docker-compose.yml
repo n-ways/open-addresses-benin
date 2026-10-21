@@ -1,0 +1,23 @@
+# N-Ways Addressing for Benin: one-command deployment.
+#   cd server && docker compose up -d
+# The first start imports the bundled registry into the "addresses" volume
+# (a few minutes for the whole country), then serves http://localhost:8080/v1.
+# Read-only unless this deployment is the designated issuer (see README.md).
+services:
+  addresses:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    image: nways-addresses-benin
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:8080"
+    environment:
+      ISSUE_KEYS: "${ISSUE_KEYS:-}"
+      ISSUE_PER_DAY: "${ISSUE_PER_DAY:-5}"
+      CORS_ORIGINS: "${CORS_ORIGINS:-*}"
+    volumes:
+      - addresses:/data
+
+volumes:
+  addresses:

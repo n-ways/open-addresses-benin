@@ -1,0 +1,26 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}[x=8mm,y=8mm]
+\pgfplotstableread{hilbert3.dat}\curve
+\foreach \i in {0,...,8} {\draw[black!15] (\i,0) -- (\i,8); \draw[black!15] (0,\i) -- (8,\i);}
+\pgfplotstablegetrowsof{\curve}\let\n\pgfplotsretval
+\pgfmathtruncatemacro{\last}{\n-2}
+\foreach \r in {0,...,\last} {
+  \pgfplotstablegetelem{\r}{x}\of\curve\let\xa\pgfplotsretval
+  \pgfplotstablegetelem{\r}{y}\of\curve\let\ya\pgfplotsretval
+  \pgfmathtruncatemacro{\s}{\r+1}
+  \pgfplotstablegetelem{\s}{x}\of\curve\let\xb\pgfplotsretval
+  \pgfplotstablegetelem{\s}{y}\of\curve\let\yb\pgfplotsretval
+  \pgfmathtruncatemacro{\pc}{round(100*\r/62)}
+  \draw[line width=1.6pt, red!\pc!green] (\xa+0.5,\ya+0.5) -- (\xb+0.5,\yb+0.5);
+}
+\foreach \r in {0,...,63} {
+  \pgfplotstablegetelem{\r}{x}\of\curve\let\xa\pgfplotsretval
+  \pgfplotstablegetelem{\r}{y}\of\curve\let\ya\pgfplotsretval
+  \node[font=\tiny, fill=white, inner sep=0.6pt] at (\xa+0.5,\ya+0.5) {\r};
+}
+\node[anchor=north, font=\scriptsize] at (4,-0.25) {$g_x \rightarrow$};
+\node[anchor=east, font=\scriptsize] at (-0.2,4) {$g_y \uparrow$};
+\end{tikzpicture}
+\end{document}

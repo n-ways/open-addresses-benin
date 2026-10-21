@@ -1,0 +1,15 @@
+{
+  "byUnit": {
+    "COV": 5903
+  },
+  "codes": 5903,
+  "country": "BJ",
+  "credit": "N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)",
+  "engine": "internal/addressing/bj (SPEC v1.0)",
+  "exported": "2026-10-20T19:51:08Z",
+  "licence": "ODbL 1.0 (LICENSE-DATA)",
+  "sha256": {
+    "COV.csv": "c16228c026be63924606eb49cd457a9fbb1125f4ef02c7e84249a3f0ac22f571",
+    "areas.csv": "8c71b5c0149f465b7d244aa1303b23fa9789b378fa623276c7bde29a63a62cbf"
+  }
+}

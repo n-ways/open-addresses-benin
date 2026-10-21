@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Server database and exports (rebuilt from registry/)
+/data/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+exported/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Editors and systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Paper build
+docs/paper/build/
+*.aux
+*.log
+*.out
+*.toc

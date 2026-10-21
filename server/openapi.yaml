@@ -1,0 +1,2308 @@
+# N-Ways Addressing for Benin: registry API (OpenAPI 3.1). Examples are real responses (lists shortened).
+openapi: 3.1.0
+info:
+  title: 'N-Ways Addressing for Benin: registry API'
+  version: '1.0'
+  description: 'Serves the published registry of N-Ways codes for Benin and, on the designated issuer only, issues new codes
+    by the same rules as the N-Ways issuer. Every example is a real response. Errors: {"error": {"code", "message"}}. See
+    docs/api.md.'
+  license:
+    name: Apache-2.0 (code); ODbL-1.0 (data)
+    identifier: Apache-2.0
+  contact:
+    name: N-WAYS LIMITED
+    url: https://nways.ng
+    email: hello@nways.ng
+servers:
+- url: /
+  description: This deployment (docker compose up serves it on port 8080).
+tags:
+- name: Service
+  description: Health and description of the deployment.
+- name: Codes
+  description: Looking up and checking codes.
+- name: Places
+  description: Codes and spot codes of points on the ground.
+- name: Communes and areas
+  description: The communes (registry files) and code areas (quartiers and villages).
+- name: Issuing
+  description: New codes and changes; the designated issuer only.
+paths:
+  /v1/health:
+    get:
+      summary: Health
+      description: Liveness and the registry in service.
+      tags:
+      - Service
+      operationId: health
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+              examples:
+                ok:
+                  value:
+                    status: ok
+                    country: BJ
+                    codes: 4147741
+                    registry_exported: '2026-10-20T19:51:08Z'
+        '405':
+          description: Method not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                wrong_method:
+                  value:
+                    error:
+                      code: method_not_allowed
+                      message: DELETE is not allowed here; use GET.
+      security: []
+  /v1/info:
+    get:
+      summary: Info
+      description: Country, counts, licences, credit line and whether this deployment issues codes.
+      tags:
+      - Service
+      operationId: info
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Info'
+              examples:
+                benin:
+                  value:
+                    country: BJ
+                    name: Benin
+                    codes:
+                      total: 4147741
+                      by_status:
+                        provisional: 4147741
+                    zones: 77
+                    areas: 12964
+                    zone_kind: commune
+                    area_kind: quartier or village
+                    registry:
+                      exported: '2026-10-20T19:51:08Z'
+                      imported_at: '2026-10-21T13:39:29Z'
+                      codes: 4147741
+                      local_changes: false
+                    issuing:
+                      enabled: false
+                      per_key_per_day: 5
+                    engine: internal/addressing/bj (SPEC v1.0)
+                    spec: engine/SPEC.md 1.0
+                    spatial_index: rtree
+                    licences:
+                      data: ODbL 1.0 (LICENSE-DATA)
+                      code: Apache License 2.0 (LICENSE, NOTICE)
+                      documents: CC BY 4.0 (LICENSE-DOCS)
+                    credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+                    credit_url: https://github.com/n-ways/open-addresses-benin
+        '405':
+          description: Method not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                wrong_method:
+                  value:
+                    error:
+                      code: method_not_allowed
+                      message: DELETE is not allowed here; use GET.
+      security: []
+  /v1/codes/{machine}:
+    get:
+      summary: Get code
+      description: The full card of one code. The check digit may be left off; a wrong one is refused.
+      tags:
+      - Codes
+      operationId: getCode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+              examples:
+                card:
+                  value:
+                    machine: BJ-COT-12-001-1807-4
+                    home: Cadjéhoun 1807
+                    written: Cadjéhoun · 18 07
+                    spoken: Cadjéhoun, 18 07
+                    display: Rue 12.202, Cotonou
+                    zone: COT-12-001
+                    number: 1807
+                    check: 4
+                    status: provisional
+                    issued: bulk
+                    issued_at: '2026-10-20T19:40:43Z'
+                    entrance:
+                      lat: 6.3582212
+                      lng: 2.3911161
+                      kind: centre
+                    spot_code: COT 12 · 35G 2PX
+                    plus_code: 6FR4995R+7CQ
+                    official_address: Rue 12.202, Cotonou
+                    official_name: Cadjéhoun
+                    area:
+                      zone: COT-12-001
+                      id: 5664
+                      plate_name: Cadjéhoun
+                      official_name: Cadjéhoun
+                      provisional_name: false
+                      commune_key: COT
+                      commune: Cotonou
+                      arrondissement: 12ème Arrondissement
+                      departement: Littoral
+                    profile:
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: 1
+                      floor_area_m2: 280.6
+                      rule: single
+                      estate: null
+                    registry:
+                      machine: BJ-COT-12-001-1807-4
+                      home: Cadjéhoun 1807
+                      written: Cadjéhoun · 18 07
+                      zone: COT-12-001
+                      official_name: Cadjéhoun
+                      number: '1807'
+                      check: '4'
+                      status: provisional
+                      issued: bulk
+                      issued_at: '2026-10-20T19:40:43Z'
+                      entrance_lat: '6.3582212'
+                      entrance_lng: '2.3911161'
+                      entrance_kind: centre
+                      spot_code: COT 12 · 35G 2PX
+                      official_address: Rue 12.202, Cotonou
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: '1'
+                      floor_area_m2: '280.6'
+                      rule: single
+                      estate: ''
+                    credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+        '422':
+          description: Refused by the rules
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                wrong_check_digit:
+                  value:
+                    error:
+                      code: check_digit
+                      message: 'The check digit does not match: a digit is wrong or two are swapped.'
+        '404':
+          description: Nothing found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                not_issued:
+                  value:
+                    error:
+                      code: not_issued
+                      message: BJ-COT-12-001-4000-4 is a valid code shape but no home has it.
+        '400':
+          description: Malformed request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                malformed:
+                  value:
+                    error:
+                      code: invalid_code
+                      message: 'Not an N-Ways Benin machine code: expected BJ-CCC-AA-QQQ-NNNN-K.'
+      parameters:
+      - name: machine
+        in: path
+        required: true
+        description: Machine code, e.g. BJ-COT-12-001-1807-4.
+        schema:
+          type: string
+      security: []
+    patch:
+      summary: Change code
+      description: Set the status or move the entrance (at most 80 m, never more than 300 m outside the national border: 422 outside_country). Issuer only.
+      tags:
+      - Issuing
+      operationId: patchCode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+              examples:
+                confirm:
+                  value:
+                    machine: BJ-COV-04-001-1110-0
+                    home: Abayahoué 1110
+                    written: Abayahoué · 11 10
+                    spoken: Abayahoué, 11 10
+                    display: Abayahoué · 11 10
+                    zone: COV-04-001
+                    number: 1110
+                    check: 0
+                    status: confirmed
+                    issued: on-demand
+                    issued_at: '2026-10-21T13:47:22Z'
+                    entrance:
+                      lat: 7.2167
+                      lng: 2.3442
+                      kind: centre
+                    spot_code: COV 07 · 427 FWX
+                    plus_code: 6FV4688V+MMP
+                    official_address: null
+                    official_name: Abayahoué
+                    area:
+                      zone: COV-04-001
+                      id: 5708
+                      plate_name: Abayahoué
+                      official_name: Abayahoué
+                      provisional_name: false
+                      commune_key: COV
+                      commune: Covè
+                      arrondissement: Houin
+                      departement: Zou
+                    profile:
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: 1
+                      floor_area_m2: 146.5
+                      rule: null
+                      estate: null
+                    registry:
+                      machine: BJ-COV-04-001-1110-0
+                      home: Abayahoué 1110
+                      written: Abayahoué · 11 10
+                      zone: COV-04-001
+                      official_name: Abayahoué
+                      number: '1110'
+                      check: '0'
+                      status: confirmed
+                      issued: on-demand
+                      issued_at: '2026-10-21T13:47:22Z'
+                      entrance_lat: '7.2167000'
+                      entrance_lng: '2.3442000'
+                      entrance_kind: centre
+                      spot_code: COV 07 · 427 FWX
+                      official_address: ''
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: '1'
+                      floor_area_m2: '146.5'
+                      rule: ''
+                      estate: ''
+                    credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+                move_entrance:
+                  value:
+                    machine: BJ-COV-04-001-1110-0
+                    home: Abayahoué 1110
+                    written: Abayahoué · 11 10
+                    spoken: Abayahoué, 11 10
+                    display: Abayahoué · 11 10
+                    zone: COV-04-001
+                    number: 1110
+                    check: 0
+                    status: confirmed
+                    issued: on-demand
+                    issued_at: '2026-10-21T13:47:22Z'
+                    entrance:
+                      lat: 7.21661
+                      lng: 2.3442
+                      kind: gate
+                    spot_code: COV 07 · 427 FQX
+                    plus_code: 6FV4688V+JMW
+                    official_address: null
+                    official_name: Abayahoué
+                    area:
+                      zone: COV-04-001
+                      id: 5708
+                      plate_name: Abayahoué
+                      official_name: Abayahoué
+                      provisional_name: false
+                      commune_key: COV
+                      commune: Covè
+                      arrondissement: Houin
+                      departement: Zou
+                    profile:
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: 1
+                      floor_area_m2: 146.5
+                      rule: null
+                      estate: null
+                    registry:
+                      machine: BJ-COV-04-001-1110-0
+                      home: Abayahoué 1110
+                      written: Abayahoué · 11 10
+                      zone: COV-04-001
+                      official_name: Abayahoué
+                      number: '1110'
+                      check: '0'
+                      status: confirmed
+                      issued: on-demand
+                      issued_at: '2026-10-21T13:47:22Z'
+                      entrance_lat: '7.2166100'
+                      entrance_lng: '2.3442000'
+                      entrance_kind: gate
+                      spot_code: COV 07 · 427 FQX
+                      official_address: ''
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: '1'
+                      floor_area_m2: '146.5'
+                      rule: ''
+                      estate: ''
+                    credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+                retire:
+                  value:
+                    machine: BJ-COV-04-001-1110-0
+                    home: Abayahoué 1110
+                    written: Abayahoué · 11 10
+                    spoken: Abayahoué, 11 10
+                    display: Abayahoué · 11 10
+                    zone: COV-04-001
+                    number: 1110
+                    check: 0
+                    status: retired
+                    issued: on-demand
+                    issued_at: '2026-10-21T13:47:22Z'
+                    entrance:
+                      lat: 7.21661
+                      lng: 2.3442
+                      kind: gate
+                    spot_code: COV 07 · 427 FQX
+                    plus_code: 6FV4688V+JMW
+                    official_address: null
+                    official_name: Abayahoué
+                    area:
+                      zone: COV-04-001
+                      id: 5708
+                      plate_name: Abayahoué
+                      official_name: Abayahoué
+                      provisional_name: false
+                      commune_key: COV
+                      commune: Covè
+                      arrondissement: Houin
+                      departement: Zou
+                    profile:
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: 1
+                      floor_area_m2: 146.5
+                      rule: null
+                      estate: null
+                    registry:
+                      machine: BJ-COV-04-001-1110-0
+                      home: Abayahoué 1110
+                      written: Abayahoué · 11 10
+                      zone: COV-04-001
+                      official_name: Abayahoué
+                      number: '1110'
+                      check: '0'
+                      status: retired
+                      issued: on-demand
+                      issued_at: '2026-10-21T13:47:22Z'
+                      entrance_lat: '7.2166100'
+                      entrance_lng: '2.3442000'
+                      entrance_kind: gate
+                      spot_code: COV 07 · 427 FQX
+                      official_address: ''
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: '1'
+                      floor_area_m2: '146.5'
+                      rule: ''
+                      estate: ''
+                    credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+        '422':
+          description: Refused by the rules
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                too_far:
+                  value:
+                    error:
+                      code: too_far
+                      message: An entrance moves at most 80 m.
+        '409':
+          description: Conflict with the register
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                retired_stays_retired:
+                  value:
+                    error:
+                      code: retired
+                      message: 'A retired code stays retired: its number is never used again.'
+      parameters:
+      - name: machine
+        in: path
+        required: true
+        description: Machine code.
+        schema:
+          type: string
+      security:
+      - issuingKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+            examples:
+              confirm:
+                value:
+                  status: confirmed
+              move_entrance:
+                value:
+                  entrance:
+                    lat: 7.21661
+                    lng: 2.3442
+  /v1/find:
+    get:
+      summary: Find
+      description: 'Whatever people type: a remembered or written code (any spacing, case, accents; optional commune after
+        a comma), a machine code, an official address or a spot code.'
+      tags:
+      - Codes
+      operationId: find
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Find'
+              examples:
+                remembered:
+                  value:
+                    query: cadjehoun 18 07, Cotonou
+                    kind: remembered
+                    count: 1
+                    more: false
+                    matches:
+                    - machine: BJ-COT-12-001-1807-4
+                      home: Cadjéhoun 1807
+                      written: Cadjéhoun · 18 07
+                      spoken: Cadjéhoun, 18 07
+                      display: Rue 12.202, Cotonou
+                      zone: COT-12-001
+                      number: 1807
+                      check: 4
+                      status: provisional
+                      issued: bulk
+                      issued_at: '2026-10-20T19:40:43Z'
+                      entrance:
+                        lat: 6.3582212
+                        lng: 2.3911161
+                        kind: centre
+                      spot_code: COT 12 · 35G 2PX
+                      plus_code: 6FR4995R+7CQ
+                      official_address: Rue 12.202, Cotonou
+                      official_name: Cadjéhoun
+                      area:
+                        zone: COT-12-001
+                        id: 5664
+                        plate_name: Cadjéhoun
+                        official_name: Cadjéhoun
+                        provisional_name: false
+                        commune_key: COT
+                        commune: Cotonou
+                        arrondissement: 12ème Arrondissement
+                        departement: Littoral
+                      profile:
+                        class: residential
+                        use: residential
+                        kind: building
+                        structures: 1
+                        floor_area_m2: 280.6
+                        rule: single
+                        estate: null
+                      registry:
+                        machine: BJ-COT-12-001-1807-4
+                        home: Cadjéhoun 1807
+                        written: Cadjéhoun · 18 07
+                        zone: COT-12-001
+                        official_name: Cadjéhoun
+                        number: '1807'
+                        check: '4'
+                        status: provisional
+                        issued: bulk
+                        issued_at: '2026-10-20T19:40:43Z'
+                        entrance_lat: '6.3582212'
+                        entrance_lng: '2.3911161'
+                        entrance_kind: centre
+                        spot_code: COT 12 · 35G 2PX
+                        official_address: Rue 12.202, Cotonou
+                        class: residential
+                        use: residential
+                        kind: building
+                        structures: '1'
+                        floor_area_m2: '280.6'
+                        rule: single
+                        estate: ''
+                      credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+                official_address:
+                  value:
+                    query: Rue 12.202, Cotonou
+                    kind: official_address
+                    count: 26
+                    more: true
+                    matches:
+                    - machine: BJ-COT-12-001-1671-4
+                      home: Cadjéhoun 1671
+                      written: Cadjéhoun · 16 71
+                      spoken: Cadjéhoun, 16 71
+                      display: Rue 12.202, Cotonou
+                      zone: COT-12-001
+                      number: 1671
+                      check: 4
+                      status: provisional
+                      issued: bulk
+                      issued_at: '2026-10-20T19:40:43Z'
+                      entrance:
+                        lat: 6.3608237
+                        lng: 2.3945469
+                        kind: centre
+                      spot_code: COT 12 · 35Q 9G8
+                      plus_code: 6FR4996V+8RF
+                      official_address: Rue 12.202, Cotonou
+                      official_name: Cadjéhoun
+                      area:
+                        zone: COT-12-001
+                        id: 5664
+                        plate_name: Cadjéhoun
+                        official_name: Cadjéhoun
+                        provisional_name: false
+                        commune_key: COT
+                        commune: Cotonou
+                        arrondissement: 12ème Arrondissement
+                        departement: Littoral
+                      profile:
+                        class: residential
+                        use: residential
+                        kind: building
+                        structures: 1
+                        floor_area_m2: 162.8
+                        rule: single
+                        estate: null
+                      registry:
+                        machine: BJ-COT-12-001-1671-4
+                        home: Cadjéhoun 1671
+                        written: Cadjéhoun · 16 71
+                        zone: COT-12-001
+                        official_name: Cadjéhoun
+                        number: '1671'
+                        check: '4'
+                        status: provisional
+                        issued: bulk
+                        issued_at: '2026-10-20T19:40:43Z'
+                        entrance_lat: '6.3608237'
+                        entrance_lng: '2.3945469'
+                        entrance_kind: centre
+                        spot_code: COT 12 · 35Q 9G8
+                        official_address: Rue 12.202, Cotonou
+                        class: residential
+                        use: residential
+                        kind: building
+                        structures: '1'
+                        floor_area_m2: '162.8'
+                        rule: single
+                        estate: ''
+                      credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+        '404':
+          description: Nothing found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                wrong_commune:
+                  value:
+                    error:
+                      code: wrong_commune
+                      message: Cadjéhoun 18 07 is in Cotonou, not Abomey.
+                not_issued:
+                  value:
+                    error:
+                      code: not_issued
+                      message: 'Agata 45 00 is not issued: no area of that name holds this number.'
+        '422':
+          description: Refused by the rules
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                wrong_check_digit:
+                  value:
+                    error:
+                      code: check_digit
+                      message: 'The check digit does not match: a digit is wrong or two are swapped.'
+        '400':
+          description: Malformed request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                missing_q:
+                  value:
+                    error:
+                      code: missing_parameter
+                      message: The "q" parameter is required.
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: The text to find.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        description: Official-address matches per response (default 20, at most 100).
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      security: []
+  /v1/at:
+    get:
+      summary: At
+      description: The code of the compound at a point (an entrance within 12 m), else the area a new code there would join. A point is in Benin when it lies in an arrondissement outline, or, in none, when engine/SPEC.md 2.4 gives it a spot code; a point farther away, or more than 300 m outside the national border (engine/SPEC.md 1b), is outside Benin (404).
+      tags:
+      - Places
+      operationId: at
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/At'
+              examples:
+                found:
+                  value:
+                    status: found
+                    distance_m: 3
+                    code:
+                      machine: BJ-COT-12-001-1807-4
+                      home: Cadjéhoun 1807
+                      written: Cadjéhoun · 18 07
+                      spoken: Cadjéhoun, 18 07
+                      display: Rue 12.202, Cotonou
+                      zone: COT-12-001
+                      number: 1807
+                      check: 4
+                      status: provisional
+                      issued: bulk
+                      issued_at: '2026-10-20T19:40:43Z'
+                      entrance:
+                        lat: 6.3582212
+                        lng: 2.3911161
+                        kind: centre
+                      spot_code: COT 12 · 35G 2PX
+                      plus_code: 6FR4995R+7CQ
+                      official_address: Rue 12.202, Cotonou
+                      official_name: Cadjéhoun
+                      area:
+                        zone: COT-12-001
+                        id: 5664
+                        plate_name: Cadjéhoun
+                        official_name: Cadjéhoun
+                        provisional_name: false
+                        commune_key: COT
+                        commune: Cotonou
+                        arrondissement: 12ème Arrondissement
+                        departement: Littoral
+                      profile:
+                        class: residential
+                        use: residential
+                        kind: building
+                        structures: 1
+                        floor_area_m2: 280.6
+                        rule: single
+                        estate: null
+                      registry:
+                        machine: BJ-COT-12-001-1807-4
+                        home: Cadjéhoun 1807
+                        written: Cadjéhoun · 18 07
+                        zone: COT-12-001
+                        official_name: Cadjéhoun
+                        number: '1807'
+                        check: '4'
+                        status: provisional
+                        issued: bulk
+                        issued_at: '2026-10-20T19:40:43Z'
+                        entrance_lat: '6.3582212'
+                        entrance_lng: '2.3911161'
+                        entrance_kind: centre
+                        spot_code: COT 12 · 35G 2PX
+                        official_address: Rue 12.202, Cotonou
+                        class: residential
+                        use: residential
+                        kind: building
+                        structures: '1'
+                        floor_area_m2: '280.6'
+                        rule: single
+                        estate: ''
+                      credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+                    area:
+                      zone: COT-12-001
+                      id: 5664
+                      plate_name: Cadjéhoun
+                      official_name: Cadjéhoun
+                      provisional_name: false
+                      commune_key: COT
+                      commune: Cotonou
+                      arrondissement: 12ème Arrondissement
+                      departement: Littoral
+                none:
+                  value:
+                    status: none
+                    can_issue: false
+                    area:
+                      zone: COT-13-003
+                      id: 5674
+                      plate_name: Aïbatin
+                      official_name: Aïbatin
+                      provisional_name: false
+                      commune_key: COT
+                      commune: Cotonou
+                      arrondissement: 13ème Arrondissement
+                      departement: Littoral
+        '404':
+          description: Nothing found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                outside:
+                  value:
+                    error:
+                      code: outside_country
+                      message: That point is outside Benin.
+        '400':
+          description: Malformed request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                bad_parameter:
+                  value:
+                    error:
+                      code: bad_parameter
+                      message: lat and lng are decimal degrees (WGS 84).
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude (WGS 84).
+        schema:
+          type: number
+      - name: lng
+        in: query
+        required: true
+        description: Longitude (WGS 84).
+        schema:
+          type: number
+      security: []
+  /v1/near:
+    get:
+      summary: Near
+      description: Codes whose entrances lie within the radius, nearest first.
+      tags:
+      - Places
+      operationId: near
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Near'
+              examples:
+                near:
+                  value:
+                    lat: 6.35825
+                    lng: 2.39112
+                    radius_m: 25.0
+                    count: 2
+                    more: false
+                    codes:
+                    - distance_m: 3.2
+                      code:
+                        machine: BJ-COT-12-001-1807-4
+                        home: Cadjéhoun 1807
+                        written: Cadjéhoun · 18 07
+                        spoken: Cadjéhoun, 18 07
+                        display: Rue 12.202, Cotonou
+                        zone: COT-12-001
+                        number: 1807
+                        check: 4
+                        status: provisional
+                        issued: bulk
+                        issued_at: '2026-10-20T19:40:43Z'
+                        entrance:
+                          lat: 6.3582212
+                          lng: 2.3911161
+                          kind: centre
+                        spot_code: COT 12 · 35G 2PX
+                        plus_code: 6FR4995R+7CQ
+                        official_address: Rue 12.202, Cotonou
+                        official_name: Cadjéhoun
+                        area:
+                          zone: COT-12-001
+                          id: 5664
+                          plate_name: Cadjéhoun
+                          official_name: Cadjéhoun
+                          provisional_name: false
+                          commune_key: COT
+                          commune: Cotonou
+                          arrondissement: 12ème Arrondissement
+                          departement: Littoral
+                        profile:
+                          class: residential
+                          use: residential
+                          kind: building
+                          structures: 1
+                          floor_area_m2: 280.6
+                          rule: single
+                          estate: null
+                        registry:
+                          machine: BJ-COT-12-001-1807-4
+                          home: Cadjéhoun 1807
+                          written: Cadjéhoun · 18 07
+                          zone: COT-12-001
+                          official_name: Cadjéhoun
+                          number: '1807'
+                          check: '4'
+                          status: provisional
+                          issued: bulk
+                          issued_at: '2026-10-20T19:40:43Z'
+                          entrance_lat: '6.3582212'
+                          entrance_lng: '2.3911161'
+                          entrance_kind: centre
+                          spot_code: COT 12 · 35G 2PX
+                          official_address: Rue 12.202, Cotonou
+                          class: residential
+                          use: residential
+                          kind: building
+                          structures: '1'
+                          floor_area_m2: '280.6'
+                          rule: single
+                          estate: ''
+                        credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+                    - distance_m: 21.7
+                      code:
+                        machine: BJ-COT-12-001-1808-2
+                        home: Cadjéhoun 1808
+                        written: Cadjéhoun · 18 08
+                        spoken: Cadjéhoun, 18 08
+                        display: Rue 12.200, Cotonou
+                        zone: COT-12-001
+                        number: 1808
+                        check: 2
+                        status: provisional
+                        issued: bulk
+                        issued_at: '2026-10-20T19:40:43Z'
+                        entrance:
+                          lat: 6.3583171
+                          lng: 2.3913045
+                          kind: centre
+                        spot_code: COT 12 · 35G 3V8
+                        plus_code: 6FR4995R+8GF
+                        official_address: Rue 12.200, Cotonou
+                        official_name: Cadjéhoun
+                        area:
+                          zone: COT-12-001
+                          id: 5664
+                          plate_name: Cadjéhoun
+                          official_name: Cadjéhoun
+                          provisional_name: false
+                          commune_key: COT
+                          commune: Cotonou
+                          arrondissement: 12ème Arrondissement
+                          departement: Littoral
+                        profile:
+                          class: residential
+                          use: residential
+                          kind: building
+                          structures: 1
+                          floor_area_m2: 230.0
+                          rule: single
+                          estate: null
+                        registry:
+                          machine: BJ-COT-12-001-1808-2
+                          home: Cadjéhoun 1808
+                          written: Cadjéhoun · 18 08
+                          zone: COT-12-001
+                          official_name: Cadjéhoun
+                          number: '1808'
+                          check: '2'
+                          status: provisional
+                          issued: bulk
+                          issued_at: '2026-10-20T19:40:43Z'
+                          entrance_lat: '6.3583171'
+                          entrance_lng: '2.3913045'
+                          entrance_kind: centre
+                          spot_code: COT 12 · 35G 3V8
+                          official_address: Rue 12.200, Cotonou
+                          class: residential
+                          use: residential
+                          kind: building
+                          structures: '1'
+                          floor_area_m2: '230.0'
+                          rule: single
+                          estate: ''
+                        credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+        '400':
+          description: Malformed request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                radius_too_large:
+                  value:
+                    error:
+                      code: bad_parameter
+                      message: radius is in metres, at most 500.
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude.
+        schema:
+          type: number
+      - name: lng
+        in: query
+        required: true
+        description: Longitude.
+        schema:
+          type: number
+      - name: radius
+        in: query
+        required: false
+        description: Metres (default 100, at most 500).
+        schema:
+          type: number
+          maximum: 500
+      - name: limit
+        in: query
+        required: false
+        description: Results (default 20, at most 100).
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      security: []
+  /v1/verify:
+    get:
+      summary: Verify
+      description: Shape, check digit and issue status of a machine code. Always 200 with a verdict.
+      tags:
+      - Codes
+      operationId: verify
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Verify'
+              examples:
+                valid:
+                  value:
+                    code: BJ-COT-12-001-1807-4
+                    valid: true
+                    syntax: true
+                    check_digit: ok
+                    issued: true
+                    status: provisional
+                    machine: BJ-COT-12-001-1807-4
+                    zone: COT-12-001
+                    reason: null
+                swapped_digits:
+                  value:
+                    code: BJ-COT-12-001-1870-4
+                    valid: false
+                    syntax: true
+                    check_digit: wrong
+                    issued: false
+                    status: null
+                    machine: null
+                    zone: null
+                    reason: 'The check digit does not match: a digit is wrong or two are swapped.'
+        '400':
+          description: Malformed request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                missing_code:
+                  value:
+                    error:
+                      code: missing_parameter
+                      message: The "code" parameter is required.
+      parameters:
+      - name: code
+        in: query
+        required: true
+        description: Machine code.
+        schema:
+          type: string
+      security: []
+  /v1/spot:
+    get:
+      summary: Spot
+      description: Spot code of any point of Benin (3 m cell, UTM zone 31N). A point in no arrondissement outline takes the arrondissement with the nearest outline within 10 km whose frame holds it (ties to the lower commune key and number), or else the nearest cell of a frame at most 999 m away (engine/SPEC.md 2.4); a point farther away is outside Benin (404).
+      tags:
+      - Places
+      operationId: spot
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Spot'
+              examples:
+                spot:
+                  value:
+                    spot_code: COT 12 · 35G 2PX
+                    machine: BJ-COT-12-S-35G2PX
+                    commune: Cotonou
+                    arrondissement: 12ème Arrondissement
+                    cell_m: 3.0
+                    centre:
+                      lat: 6.3582256
+                      lng: 2.3911096
+        '404':
+          description: Nothing found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                outside:
+                  value:
+                    error:
+                      code: outside_country
+                      message: That point is outside Benin.
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude.
+        schema:
+          type: number
+      - name: lng
+        in: query
+        required: true
+        description: Longitude.
+        schema:
+          type: number
+      security: []
+  /v1/spot/decode:
+    get:
+      summary: Spot decode
+      description: Centre of a spot code's cell, in the frame of the arrondissement the code names.
+      tags:
+      - Places
+      operationId: spotDecode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Spot'
+              examples:
+                decode:
+                  value:
+                    spot_code: COT 12 · 35G 2PX
+                    machine: BJ-COT-12-S-35G2PX
+                    commune: Cotonou
+                    arrondissement: 12ème Arrondissement
+                    cell_m: 3.0
+                    centre:
+                      lat: 6.3582256
+                      lng: 2.3911096
+        '400':
+          description: Malformed request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                too_short:
+                  value:
+                    error:
+                      code: invalid_spot
+                      message: Spot code here has 6 characters.
+      parameters:
+      - name: code
+        in: query
+        required: true
+        description: Spot code (display or machine form).
+        schema:
+          type: string
+      security: []
+  /v1/zones:
+    get:
+      summary: Zones
+      description: The communes, with their counts and registry files.
+      tags:
+      - Communes and areas
+      operationId: listZones
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zones'
+              examples:
+                zones:
+                  value:
+                    count: 77
+                    zones:
+                    - key: ABO
+                      name: Abomey
+                      departement: Zou
+                      areas: 180
+                      codes: 62476
+                      file: ABO.csv.gz
+                    - key: ADA
+                      name: Adjarra
+                      departement: Oueme
+                      areas: 55
+                      codes: 56677
+                      file: ADA.csv.gz
+        '405':
+          description: Method not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                wrong_method:
+                  value:
+                    error:
+                      code: method_not_allowed
+                      message: DELETE is not allowed here; use GET.
+      security: []
+  /v1/zones/{key}:
+    get:
+      summary: Zone
+      description: One commune with its code areas.
+      tags:
+      - Communes and areas
+      operationId: getZone
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZoneDetail'
+              examples:
+                cotonou:
+                  value:
+                    key: COT
+                    name: Cotonou
+                    departement: Littoral
+                    codes: 104101
+                    file: COT.csv.gz
+                    areas:
+                    - zone: COT-01-001
+                      id: 5604
+                      plate_name: Avotrou
+                      official_name: Avotrou
+                      provisional_name: false
+                      commune_key: COT
+                      commune: Cotonou
+                      arrondissement: 1er Arrondissement
+                      departement: Littoral
+                      blocks:
+                      - - 1000
+                        - 4399
+                      codes: 1685
+                    - zone: COT-01-002
+                      id: 5605
+                      plate_name: Dandji
+                      official_name: Dandji
+                      provisional_name: false
+                      commune_key: COT
+                      commune: Cotonou
+                      arrondissement: 1er Arrondissement
+                      departement: Littoral
+                      blocks:
+                      - - 1000
+                        - 5099
+                      codes: 2017
+        '404':
+          description: Nothing found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                unknown:
+                  value:
+                    error:
+                      code: unknown_zone
+                      message: There is no commune with key XYZ.
+      parameters:
+      - name: key
+        in: path
+        required: true
+        description: Commune key, e.g. COT.
+        schema:
+          type: string
+      security: []
+  /v1/zones/{key}/codes:
+    get:
+      summary: Zone codes
+      description: Every code of a commune in machine-code order, page by page.
+      tags:
+      - Communes and areas
+      operationId: listZoneCodes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZonePage'
+              examples:
+                page:
+                  value:
+                    zone: COT
+                    count: 1
+                    codes:
+                    - machine: BJ-COT-01-001-1000-3
+                      home: Avotrou 1000
+                      written: Avotrou · 10 00
+                      spoken: Avotrou, 10 00
+                      display: Avotrou · 10 00
+                      zone: COT-01-001
+                      number: 1000
+                      check: 3
+                      status: provisional
+                      issued: bulk
+                      issued_at: '2026-10-20T19:40:33Z'
+                      entrance:
+                        lat: 6.3754826
+                        lng: 2.470778
+                        kind: centre
+                      spot_code: COT 01 · 534 69G
+                      plus_code: 6FR49FGC+58R
+                      official_address: null
+                      official_name: Avotrou
+                      area:
+                        zone: COT-01-001
+                        id: 5604
+                        plate_name: Avotrou
+                        official_name: Avotrou
+                        provisional_name: false
+                        commune_key: COT
+                        commune: Cotonou
+                        arrondissement: 1er Arrondissement
+                        departement: Littoral
+                      profile:
+                        class: residential
+                        use: residential
+                        kind: building
+                        structures: 1
+                        floor_area_m2: 33.4
+                        rule: single
+                        estate: null
+                      registry:
+                        machine: BJ-COT-01-001-1000-3
+                        home: Avotrou 1000
+                        written: Avotrou · 10 00
+                        zone: COT-01-001
+                        official_name: Avotrou
+                        number: '1000'
+                        check: '3'
+                        status: provisional
+                        issued: bulk
+                        issued_at: '2026-10-20T19:40:33Z'
+                        entrance_lat: '6.3754826'
+                        entrance_lng: '2.4707780'
+                        entrance_kind: centre
+                        spot_code: COT 01 · 534 69G
+                        official_address: ''
+                        class: residential
+                        use: residential
+                        kind: building
+                        structures: '1'
+                        floor_area_m2: '33.4'
+                        rule: single
+                        estate: ''
+                      credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+                    next: BJ-COT-01-001-1000-3
+        '400':
+          description: Malformed request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                limit_too_large:
+                  value:
+                    error:
+                      code: bad_parameter
+                      message: limit is at most 1000.
+      parameters:
+      - name: key
+        in: path
+        required: true
+        description: Commune key.
+        schema:
+          type: string
+      - name: after
+        in: query
+        required: false
+        description: The "next" value of the previous page.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        description: Codes per page (default 100, at most 1000).
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      security: []
+  /v1/areas/{id}:
+    get:
+      summary: Area
+      description: A code area by key or numeric id.
+      tags:
+      - Communes and areas
+      operationId: getArea
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AreaDetail'
+              examples:
+                area:
+                  value:
+                    zone: COT-12-001
+                    id: 5664
+                    plate_name: Cadjéhoun
+                    official_name: Cadjéhoun
+                    provisional_name: false
+                    commune_key: COT
+                    commune: Cotonou
+                    arrondissement: 12ème Arrondissement
+                    departement: Littoral
+                    name_key: cajehoun
+                    name_index: 2362
+                    digits: 4
+                    blocks:
+                    - - 1000
+                      - 5099
+                    place:
+                      lat: 6.358485
+                      lng: 2.395116
+                    frame:
+                    - 2.389926
+                    - 6.354647
+                    - 2.405961
+                    - 6.367091
+                    codes:
+                      total: 2046
+                      by_status:
+                        provisional: 2046
+                    numbers:
+                      lowest: 1000
+                      highest: 3045
+                    same_name: []
+        '404':
+          description: Nothing found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                unknown:
+                  value:
+                    error:
+                      code: unknown_area
+                      message: There is no code area COT-99-999.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Area key (COT-12-001) or id.
+        schema:
+          type: string
+      security: []
+  /v1/areas:
+    get:
+      summary: Areas by name
+      description: The areas of a plate or official name (alias-aware).
+      tags:
+      - Communes and areas
+      operationId: findAreas
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Areas'
+              examples:
+                agata:
+                  value:
+                    name: agata
+                    count: 3
+                    areas:
+                    - zone: ALL-06-001
+                      id: 935
+                      plate_name: Agata
+                      official_name: Agata
+                      provisional_name: false
+                      commune_key: ALL
+                      commune: Allada
+                      arrondissement: Ayou
+                      departement: Atlantique
+                      name_key: agata
+                      name_index: 289
+                      digits: 4
+                      blocks:
+                      - - 1000
+                        - 1199
+                      place:
+                        lat: 6.711229
+                        lng: 2.084128
+                      frame:
+                      - 2.083221
+                      - 6.709682
+                      codes:
+                        total: 19
+                        by_status:
+                          provisional: 19
+                      numbers:
+                        lowest: 1000
+                        highest: 1126
+                      same_name:
+                      - COT-06-001
+                      - DAN-01-001
+                    - zone: COT-06-001
+                      id: 5623
+                      plate_name: Agata
+                      official_name: Agata
+                      provisional_name: false
+                      commune_key: COT
+                      commune: Cotonou
+                      arrondissement: 6ème Arrondissement
+                      departement: Littoral
+                      name_key: agata
+                      name_index: 289
+                      digits: 4
+                      blocks:
+                      - - 1200
+                        - 2499
+                      place:
+                        lat: 6.385043
+                        lng: 2.42272
+                      frame:
+                      - 2.417773
+                      - 6.381892
+                      codes:
+                        total: 623
+                        by_status:
+                          provisional: 623
+                      numbers:
+                        lowest: 1200
+                        highest: 1822
+                      same_name:
+                      - ALL-06-001
+                      - DAN-01-001
+        '404':
+          description: Nothing found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                unknown:
+                  value:
+                    error:
+                      code: unknown_name
+                      message: No code area of Benin is called "Kpakpakpa".
+      parameters:
+      - name: name
+        in: query
+        required: true
+        description: A name.
+        schema:
+          type: string
+      security: []
+  /v1/codes:
+    post:
+      summary: Issue code
+      description: A provisional code for a new compound, or for another door of one. The point must be in Benin as /v1/at decides (at most 300 m outside the national border, engine/SPEC.md 1b, and in an arrondissement outline, or in none with a spot code); else 422 outside_country. Issuer only.
+      tags:
+      - Issuing
+      operationId: issueCode
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+              examples:
+                new_home:
+                  value:
+                    machine: BJ-COV-04-001-1110-0
+                    home: Abayahoué 1110
+                    written: Abayahoué · 11 10
+                    spoken: Abayahoué, 11 10
+                    display: Abayahoué · 11 10
+                    zone: COV-04-001
+                    number: 1110
+                    check: 0
+                    status: provisional
+                    issued: on-demand
+                    issued_at: '2026-10-21T13:47:22Z'
+                    entrance:
+                      lat: 7.2167
+                      lng: 2.3442
+                      kind: centre
+                    spot_code: COV 07 · 427 FWX
+                    plus_code: 6FV4688V+MMP
+                    official_address: null
+                    official_name: Abayahoué
+                    area:
+                      zone: COV-04-001
+                      id: 5708
+                      plate_name: Abayahoué
+                      official_name: Abayahoué
+                      provisional_name: false
+                      commune_key: COV
+                      commune: Covè
+                      arrondissement: Houin
+                      departement: Zou
+                    profile:
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: 1
+                      floor_area_m2: 146.5
+                      rule: null
+                      estate: null
+                    registry:
+                      machine: BJ-COV-04-001-1110-0
+                      home: Abayahoué 1110
+                      written: Abayahoué · 11 10
+                      zone: COV-04-001
+                      official_name: Abayahoué
+                      number: '1110'
+                      check: '0'
+                      status: provisional
+                      issued: on-demand
+                      issued_at: '2026-10-21T13:47:22Z'
+                      entrance_lat: '7.2167000'
+                      entrance_lng: '2.3442000'
+                      entrance_kind: centre
+                      spot_code: COV 07 · 427 FWX
+                      official_address: ''
+                      class: residential
+                      use: residential
+                      kind: building
+                      structures: '1'
+                      floor_area_m2: '146.5'
+                      rule: ''
+                      estate: ''
+                    credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+                another_door:
+                  value:
+                    machine: BJ-COV-04-001-1022-6
+                    home: Abayahoué 1022
+                    written: Abayahoué · 10 22
+                    spoken: Abayahoué, 10 22
+                    display: Abayahoué · 10 22
+                    zone: COV-04-001
+                    number: 1022
+                    check: 6
+                    status: provisional
+                    issued: on-demand
+                    issued_at: '2026-10-21T13:47:22Z'
+                    entrance:
+                      lat: 7.21705
+                      lng: 2.34285
+                      kind: door
+                    spot_code: COV 04 · 34F 2WR
+                    plus_code: 6FV4688V+R4H
+                    official_address: null
+                    official_name: Abayahoué
+                    area:
+                      zone: COV-04-001
+                      id: 5708
+                      plate_name: Abayahoué
+                      official_name: Abayahoué
+                      provisional_name: false
+                      commune_key: COV
+                      commune: Covè
+                      arrondissement: Houin
+                      departement: Zou
+                    profile:
+                      class: null
+                      use: residential
+                      kind: door
+                      structures: 0
+                      floor_area_m2: 0.0
+                      rule: null
+                      estate: null
+                    registry:
+                      machine: BJ-COV-04-001-1022-6
+                      home: Abayahoué 1022
+                      written: Abayahoué · 10 22
+                      zone: COV-04-001
+                      official_name: Abayahoué
+                      number: '1022'
+                      check: '6'
+                      status: provisional
+                      issued: on-demand
+                      issued_at: '2026-10-21T13:47:22Z'
+                      entrance_lat: '7.2170500'
+                      entrance_lng: '2.3428500'
+                      entrance_kind: door
+                      spot_code: COV 04 · 34F 2WR
+                      official_address: ''
+                      class: ''
+                      use: residential
+                      kind: door
+                      structures: '0'
+                      floor_area_m2: '0.0'
+                      rule: ''
+                      estate: ''
+                    credit: N-Ways Addressing for Benin, © N-WAYS LIMITED (nways.ng)
+        '409':
+          description: Conflict with the register
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                same_building:
+                  value:
+                    error:
+                      code: exists
+                      message: 'This building already has its code: Abayahoué · 11 10.'
+                      machine: BJ-COV-04-001-1110-0
+        '422':
+          description: Refused by the rules
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                door_too_far:
+                  value:
+                    error:
+                      code: too_far
+                      message: That door is more than 80 m from Abayahoué · 10 00.
+                outside:
+                  value:
+                    error:
+                      code: outside_country
+                      message: That point is outside Benin, so it cannot have a Benin code.
+        '401':
+          description: No valid issuing key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                no_key:
+                  value:
+                    error:
+                      code: unauthorized
+                      message: 'A valid issuing key is required (Authorization: Bearer <key>).'
+        '403':
+          description: This deployment is read-only
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                read_only:
+                  value:
+                    error:
+                      code: read_only
+                      message: 'This deployment does not issue codes: it serves the published registry only.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueRequest'
+            examples:
+              new_home:
+                value:
+                  lat: 7.2167
+                  lng: 2.3442
+                  outline:
+                  - - 2.34414
+                    - 7.21665
+                  - - 2.34426
+                    - 7.21665
+                  - - 2.34426
+                    - 7.21675
+                  - - 2.34414
+                    - 7.21675
+              another_door:
+                value:
+                  lat: 7.21705
+                  lng: 2.34285
+                  of: BJ-COV-04-001-1044-3
+      security:
+      - issuingKey: []
+components:
+  schemas:
+    Error:
+      type: object
+      description: Every error.
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - code
+          - message
+          properties:
+            code:
+              type: string
+              description: Stable error code for programs.
+              enum:
+              - bad_parameter
+              - missing_parameter
+              - bad_body
+              - bad_outline
+              - body_too_large
+              - invalid_code
+              - invalid_spot
+              - check_digit
+              - not_in_area
+              - unknown_area
+              - unknown_name
+              - unknown_zone
+              - wrong_digits
+              - wrong_commune
+              - not_issued
+              - retired
+              - not_found
+              - no_code_at_spot
+              - outside_country
+              - no_area
+              - unauthorized
+              - read_only
+              - rate_limited
+              - exists
+              - area_full
+              - too_far
+              - method_not_allowed
+              - no_such_endpoint
+              - internal
+            message:
+              type: string
+              description: Plain-English explanation for people.
+            machine:
+              type: string
+              description: 'With `exists`: the code the building already has.'
+    AreaBrief:
+      type: object
+      description: A code area (quartier or village).
+      properties:
+        zone:
+          type: string
+          description: 'Area key: commune, arrondissement, quartier.'
+          examples:
+          - COT-12-001
+        id:
+          type: integer
+        plate_name:
+          type: string
+          description: The name in the code (at most 12 characters, 2 words).
+        official_name:
+          type: string
+        provisional_name:
+          type: boolean
+          description: The commune may still choose the plate name once; the numbers never change.
+        commune_key:
+          type: string
+        commune:
+          type: string
+        arrondissement:
+          type: string
+        departement:
+          type: string
+    Card:
+      type: object
+      description: One issued code.
+      properties:
+        machine:
+          type: string
+          description: Machine form, with the check digit (for systems).
+          pattern: ^BJ-[A-Z]{3}-\d{2}-\d{3}-\d{4,5}-\d$
+        home:
+          type: string
+          description: Remembered form.
+        written:
+          type: string
+          description: 'Written form: name · number in pairs, no check digit.'
+        spoken:
+          type: string
+        display:
+          type: string
+          description: 'What to show first: the official address where the State has one, else the written form.'
+        zone:
+          type: string
+        number:
+          type: integer
+        check:
+          type: integer
+        status:
+          type: string
+          enum:
+          - provisional
+          - confirmed
+          - retired
+        issued:
+          type: string
+          enum:
+          - bulk
+          - on-demand
+        issued_at:
+          type: string
+          format: date-time
+        entrance:
+          type: object
+          properties:
+            lat:
+              type: number
+            lng:
+              type: number
+            kind:
+              type: string
+              enum:
+              - centre
+              - door
+              - gate
+        spot_code:
+          type: string
+        plus_code:
+          type: string
+        official_address: &id001
+          type:
+          - string
+          - 'null'
+        official_name:
+          type: string
+        area:
+          $ref: '#/components/schemas/AreaBrief'
+        profile:
+          type: object
+          properties:
+            class: *id001
+            use: *id001
+            kind: *id001
+            structures:
+              type: integer
+            floor_area_m2:
+              type: number
+            rule: *id001
+            estate: *id001
+        registry:
+          type: object
+          description: The published registry row, every column as written in registry/<commune>.csv.gz.
+          additionalProperties:
+            type: string
+        credit:
+          type: string
+    Find:
+      type: object
+      properties:
+        query:
+          type: string
+        kind:
+          type: string
+          enum:
+          - remembered
+          - machine
+          - official_address
+          - spot
+        count:
+          type: integer
+        more:
+          type: boolean
+        matches:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+    At:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - found
+          - none
+        distance_m:
+          type: integer
+        code:
+          $ref: '#/components/schemas/Card'
+        can_issue:
+          type: boolean
+        area:
+          $ref: '#/components/schemas/AreaBrief'
+    Near:
+      type: object
+      properties:
+        lat:
+          type: number
+        lng:
+          type: number
+        radius_m:
+          type: number
+        count:
+          type: integer
+        more:
+          type: boolean
+        codes:
+          type: array
+          items:
+            type: object
+            properties:
+              distance_m:
+                type: number
+              code:
+                $ref: '#/components/schemas/Card'
+    Verify:
+      type: object
+      properties:
+        code:
+          type: string
+        valid:
+          type: boolean
+        syntax:
+          type: boolean
+        check_digit:
+          type:
+          - string
+          - 'null'
+          enum:
+          - ok
+          - wrong
+          - missing
+          - null
+        issued:
+          type: boolean
+        status: *id001
+        machine: *id001
+        zone: *id001
+        reason: *id001
+    Spot:
+      type: object
+      properties:
+        spot_code:
+          type: string
+        machine:
+          type: string
+        commune:
+          type: string
+        arrondissement:
+          type: string
+        cell_m:
+          type: number
+        centre:
+          type: object
+          properties:
+            lat:
+              type: number
+            lng:
+              type: number
+    Zone:
+      type: object
+      description: A commune.
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        departement:
+          type: string
+        areas:
+          type: integer
+        codes:
+          type: integer
+        file:
+          type: string
+    Zones:
+      type: object
+      properties:
+        count:
+          type: integer
+        zones:
+          type: array
+          items:
+            $ref: '#/components/schemas/Zone'
+    ZoneDetail:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        departement:
+          type: string
+        codes:
+          type: integer
+        file:
+          type: string
+        areas:
+          type: array
+          items:
+            allOf:
+            - $ref: '#/components/schemas/AreaBrief'
+            - type: object
+              properties:
+                blocks:
+                  type: array
+                  items:
+                    type: array
+                    items:
+                      type: integer
+                    minItems: 2
+                    maxItems: 2
+                codes:
+                  type: integer
+    ZonePage:
+      type: object
+      properties:
+        zone:
+          type: string
+        count:
+          type: integer
+        codes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+        next: *id001
+    AreaDetail:
+      allOf:
+      - $ref: '#/components/schemas/AreaBrief'
+      - type: object
+        properties:
+          name_key:
+            type: string
+          name_index:
+            type: integer
+          digits:
+            type: integer
+            enum:
+            - 4
+            - 5
+          blocks:
+            type: array
+            items:
+              type: array
+              items:
+                type: integer
+              minItems: 2
+              maxItems: 2
+          place:
+            type:
+            - object
+            - 'null'
+          frame:
+            type:
+            - array
+            - 'null'
+            items:
+              type: number
+          codes:
+            type: object
+            properties:
+              total:
+                type: integer
+              by_status:
+                type: object
+                additionalProperties:
+                  type: integer
+          numbers:
+            type: object
+            properties:
+              lowest:
+                type:
+                - integer
+                - 'null'
+              highest:
+                type:
+                - integer
+                - 'null'
+          same_name:
+            type: array
+            items:
+              type: string
+    Areas:
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          type: integer
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AreaDetail'
+    Health:
+      type: object
+      properties:
+        status:
+          type: string
+        country:
+          type: string
+        codes:
+          type: integer
+        registry_exported:
+          type: string
+          format: date-time
+    Info:
+      type: object
+      properties:
+        country:
+          type: string
+        name:
+          type: string
+        codes:
+          type: object
+        zones:
+          type: integer
+        areas:
+          type: integer
+        zone_kind:
+          type: string
+        area_kind:
+          type: string
+        spatial_index:
+          type: string
+          enum:
+          - rtree
+          - grid
+        registry:
+          type: object
+        issuing:
+          type: object
+        engine:
+          type: string
+        spec:
+          type: string
+        licences:
+          type: object
+        credit:
+          type: string
+        credit_url:
+          type: string
+    IssueRequest:
+      type: object
+      required:
+      - lat
+      - lng
+      properties:
+        lat:
+          type: number
+          minimum: -90
+          maximum: 90
+        lng:
+          type: number
+          minimum: -180
+          maximum: 180
+        outline:
+          type: array
+          description: The building outline as [lng, lat] pairs (6 m² to 2 ha).
+          maxItems: 500
+          items:
+            type: array
+            items:
+              type: number
+            minItems: 2
+            maxItems: 2
+        of:
+          type: string
+          description: Machine code of the compound this is another door of (within 80 m).
+    PatchRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - provisional
+          - confirmed
+          - retired
+        entrance:
+          type: object
+          required:
+          - lat
+          - lng
+          properties:
+            lat:
+              type: number
+            lng:
+              type: number
+  securitySchemes:
+    issuingKey:
+      type: http
+      scheme: bearer
+      description: A key from ISSUE_KEYS (issuer only).

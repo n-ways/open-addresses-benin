@@ -1,0 +1,27 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\pgfplotstableread{zongo-blocks.dat}\blocks
+\begin{axis}[width=12.5cm, height=10.5cm, xmin=10000, xmax=34000, ymin=-0.8, ymax=25.8, y dir=reverse,
+  xbar stacked, bar width=5pt,
+  ytick={0,...,25}, yticklabels from table={\blocks}{area}, y tick label style={font=\tiny},
+  xtick={10000,15000,20000,25000,29900}, xticklabel style={font=\scriptsize}, scaled x ticks=false,
+  xlabel={\T{number in the national range of the name Zongo}{numéro dans la plage nationale du nom Zongo}},
+  axis x line*=bottom, axis y line*=left, clip=false, xmajorgrids, grid style={black!8},
+  legend style={at={(0.5,1.02)}, anchor=south, draw=none, font=\scriptsize, legend columns=2}, legend cell align=left]
+  \addplot[draw=none, fill=none, forget plot] table[y expr=\coordindex, x=first] {\blocks};
+  \addplot[draw=none, fill=green] table[y expr=\coordindex, x expr=\thisrow{tail}-\thisrow{first}] {\blocks};
+  \addlegendentry{\T{numbered at first issue (two thirds of the block)}{numérotés à l'émission (deux tiers du bloc)}}
+  \addplot[draw=none, fill=yellow, nodes near coords={\pgfmathprintnumber{\pgfplotspointmeta}}, point meta=explicit,
+    every node near coord/.style={anchor=west, font=\tiny, black!65, xshift=1pt}]
+    table[y expr=\coordindex, x expr=\thisrow{end}-\thisrow{tail}, meta=compounds] {\blocks};
+  \addlegendentry{\T{tail reserve (labels: compounds of the area)}{réserve de fin (étiquettes : concessions de la zone)}}
+  \fill[black!10] (axis cs:29900,-0.6) rectangle (axis cs:34000,25.6);
+  \coordinate (spare) at (axis cs:31950,12.5);
+\end{axis}
+  \node[rotate=90, font=\scriptsize, black!70, align=center] at (spare)
+    {\T{spare for future areas named Zongo:}{réserve pour de futures zones nommées Zongo :}\\
+     \T{29,900--99,999 (70,100 numbers)}{29\,900--99\,999 (70\,100 numéros)}};
+\end{tikzpicture}
+\end{document}

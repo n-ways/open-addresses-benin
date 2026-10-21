@@ -1,0 +1,472 @@
+{
+ "source": "model/keys.json code areas; the compounds grouped at first issue (20 October 2026)",
+ "sampleOutsideArrondissements": 0,
+ "areas": 12964,
+ "names": 10841,
+ "repeatingNames": 1265,
+ "areasWithRepeatingNames": 3388,
+ "shareOfAreasWithRepeatingNames": 0.261,
+ "repeatingNamesByAreaCount": {
+  "2": 887,
+  "3": 203,
+  "4": 85,
+  "5": 32,
+  "6": 20,
+  "7": 13,
+  "8": 4,
+  "9": 5,
+  "10": 3,
+  "11": 5,
+  "12": 1,
+  "13": 2,
+  "14": 1,
+  "15": 1,
+  "19": 1,
+  "20": 1,
+  "26": 1
+ },
+ "namesByDigits": {
+  "4": 10707,
+  "5": 134
+ },
+ "repeatingNamesByDigits": {
+  "4": 1219,
+  "5": 46
+ },
+ "qualified": [],
+ "areasOverFourDigits": {
+  "rule": "an area whose block exceeds 8,500 numbers has five digits",
+  "count": 118,
+  "largest": [
+   [
+    "Ladji Farani",
+    23009
+   ],
+   [
+    "GOURÈ TÉPEL",
+    19296
+   ],
+   [
+    "Lokossa",
+    17445
+   ],
+   [
+    "Cococodji",
+    15477
+   ],
+   [
+    "Tanguieta",
+    13754
+   ],
+   [
+    "Malanville",
+    13151
+   ],
+   [
+    "Gbedji",
+    12866
+   ],
+   [
+    "Tori-Bossito",
+    12172
+   ],
+   [
+    "Keberou",
+    12067
+   ],
+   [
+    "Kouandé",
+    11207
+   ],
+   [
+    "Porto-Novo",
+    11168
+   ],
+   [
+    "Kpébié",
+    11074
+   ]
+  ]
+ },
+ "largestSharedRanges": [
+  {
+   "name": "gouretepel",
+   "spelled": [
+    "Gourè Tépel",
+    "Gouré Tépel"
+   ],
+   "areas": 2,
+   "compounds": 19355,
+   "blocks": 38800,
+   "digits": 5
+  },
+  {
+   "name": "lokosa",
+   "spelled": [
+    "Lokossa"
+   ],
+   "areas": 9,
+   "compounds": 18784,
+   "blocks": 38100,
+   "digits": 5
+  },
+  {
+   "name": "gbeji",
+   "spelled": [
+    "Gbedji",
+    "Gbèdji",
+    "Gbédji"
+   ],
+   "areas": 15,
+   "compounds": 14035,
+   "blocks": 29400,
+   "digits": 5
+  },
+  {
+   "name": "kpebie",
+   "spelled": [
+    "Kpébié"
+   ],
+   "areas": 2,
+   "compounds": 11247,
+   "blocks": 22600,
+   "digits": 5
+  },
+  {
+   "name": "fifaji",
+   "spelled": [
+    "Fifadji"
+   ],
+   "areas": 11,
+   "compounds": 10884,
+   "blocks": 22700,
+   "digits": 5
+  },
+  {
+   "name": "zongo",
+   "spelled": [
+    "Zongo"
+   ],
+   "areas": 26,
+   "compounds": 9160,
+   "blocks": 19900,
+   "digits": 5
+  },
+  {
+   "name": "banikani",
+   "spelled": [
+    "Banikani",
+    "Banikanni"
+   ],
+   "areas": 6,
+   "compounds": 8534,
+   "blocks": 17400,
+   "digits": 5
+  },
+  {
+   "name": "ceti",
+   "spelled": [
+    "Tchetti"
+   ],
+   "areas": 2,
+   "compounds": 8361,
+   "blocks": 16800,
+   "digits": 5
+  },
+  {
+   "name": "hweto",
+   "spelled": [
+    "Houèto"
+   ],
+   "areas": 4,
+   "compounds": 8354,
+   "blocks": 16900,
+   "digits": 5
+  },
+  {
+   "name": "wese",
+   "spelled": [
+    "Ouèssè"
+   ],
+   "areas": 3,
+   "compounds": 8287,
+   "blocks": 16700,
+   "digits": 5
+  },
+  {
+   "name": "adovie",
+   "spelled": [
+    "Adovié"
+   ],
+   "areas": 2,
+   "compounds": 8057,
+   "blocks": 16200,
+   "digits": 5
+  },
+  {
+   "name": "some",
+   "spelled": [
+    "Somè"
+   ],
+   "areas": 5,
+   "compounds": 7287,
+   "blocks": 15100,
+   "digits": 5
+  },
+  {
+   "name": "yenawa",
+   "spelled": [
+    "Yénawa"
+   ],
+   "areas": 12,
+   "compounds": 7203,
+   "blocks": 15600,
+   "digits": 5
+  },
+  {
+   "name": "dasari",
+   "spelled": [
+    "Dassari"
+   ],
+   "areas": 2,
+   "compounds": 7073,
+   "blocks": 14300,
+   "digits": 5
+  },
+  {
+   "name": "sakete",
+   "spelled": [
+    "Sakété"
+   ],
+   "areas": 2,
+   "compounds": 7072,
+   "blocks": 14300,
+   "digits": 5
+  }
+ ],
+ "mostRepeated": [
+  {
+   "name": "zongo",
+   "spelled": [
+    "Zongo"
+   ],
+   "areas": 26,
+   "compounds": 9160,
+   "blocks": 19900,
+   "digits": 5
+  },
+  {
+   "name": "kpoji",
+   "spelled": [
+    "Kpodji"
+   ],
+   "areas": 20,
+   "compounds": 1756,
+   "blocks": 5600,
+   "digits": 4
+  },
+  {
+   "name": "kpota",
+   "spelled": [
+    "Kpota"
+   ],
+   "areas": 19,
+   "compounds": 2946,
+   "blocks": 7000,
+   "digits": 4
+  },
+  {
+   "name": "gbeji",
+   "spelled": [
+    "Gbedji",
+    "Gbèdji",
+    "Gbédji"
+   ],
+   "areas": 15,
+   "compounds": 14035,
+   "blocks": 29400,
+   "digits": 5
+  },
+  {
+   "name": "zoungoudo",
+   "spelled": [
+    "Zoungoudo"
+   ],
+   "areas": 14,
+   "compounds": 3213,
+   "blocks": 7700,
+   "digits": 4
+  },
+  {
+   "name": "dekanme",
+   "spelled": [
+    "Dékanmè"
+   ],
+   "areas": 13,
+   "compounds": 2745,
+   "blocks": 6300,
+   "digits": 4
+  },
+  {
+   "name": "tokpa",
+   "spelled": [
+    "Tokpa"
+   ],
+   "areas": 13,
+   "compounds": 2862,
+   "blocks": 6800,
+   "digits": 4
+  },
+  {
+   "name": "yenawa",
+   "spelled": [
+    "Yénawa"
+   ],
+   "areas": 12,
+   "compounds": 7203,
+   "blocks": 15600,
+   "digits": 5
+  },
+  {
+   "name": "zounme",
+   "spelled": [
+    "Zounmè"
+   ],
+   "areas": 11,
+   "compounds": 3451,
+   "blocks": 7400,
+   "digits": 4
+  },
+  {
+   "name": "ahito",
+   "spelled": [
+    "Ahito"
+   ],
+   "areas": 11,
+   "compounds": 3059,
+   "blocks": 6800,
+   "digits": 4
+  },
+  {
+   "name": "fifaji",
+   "spelled": [
+    "Fifadji"
+   ],
+   "areas": 11,
+   "compounds": 10884,
+   "blocks": 22700,
+   "digits": 5
+  },
+  {
+   "name": "angaradebou",
+   "spelled": [
+    "Angaradébou"
+   ],
+   "areas": 11,
+   "compounds": 3679,
+   "blocks": 8000,
+   "digits": 4
+  },
+  {
+   "name": "danca",
+   "spelled": [
+    "Dantcha"
+   ],
+   "areas": 11,
+   "compounds": 1713,
+   "blocks": 4100,
+   "digits": 4
+  },
+  {
+   "name": "gbeto",
+   "spelled": [
+    "Gbèto",
+    "Gbéto"
+   ],
+   "areas": 10,
+   "compounds": 3260,
+   "blocks": 7100,
+   "digits": 4
+  },
+  {
+   "name": "ajacome",
+   "spelled": [
+    "Adjacome",
+    "Adjacomè",
+    "Adjacômè"
+   ],
+   "areas": 10,
+   "compounds": 506,
+   "blocks": 2100,
+   "digits": 4
+  }
+ ],
+ "plateNames": {
+  "rule": "plate name: at most 12 characters (accented letter, space, hyphen, apostrophe = 1) and 2 words (linking words de, du, des, la, le, les, l', es... do not count); tools/bj_plates.py",
+  "areas": 12964,
+  "officialOverLimit": {
+   "chars": 1794,
+   "words": 191,
+   "either": 1805
+  },
+  "plateRules": {
+   "abbreviated": 1,
+   "as-is": 11134,
+   "cleaned": 70,
+   "council": 1299,
+   "distinctive": 460
+  },
+  "needsCouncilChoice": 1300,
+  "needsCouncilChoiceWithCandidates": 619,
+  "stillOverLimit": 681,
+  "stillOverLimitExamples": [
+   "1er Arrondissement",
+   "2e Arrondissement",
+   "3e Arrondissement",
+   "3ème Arrondissement",
+   "Abdoulaye Sori",
+   "Ablonyonkodji",
+   "Adanhondjigon",
+   "Adanhoundéhoué",
+   "Adankpéssodégon",
+   "Adanminakougon",
+   "Adigbannongon",
+   "Adigblikondji"
+  ],
+  "collisionsBefore": {
+   "names": 11208,
+   "sharedNames": 1024,
+   "areasInSharedNames": 2780
+  },
+  "collisionsAfter": {
+   "names": 10841,
+   "sharedNames": 1265,
+   "areasInSharedNames": 3388
+  },
+  "namesSharedOnlyAfterShortening": 337,
+  "aliases": 1109,
+  "aliasesDropped": 5,
+  "namesByDigits": {
+   "4": 10707,
+   "5": 134
+  },
+  "areasByDigits": {
+   "4": 12665,
+   "5": 299
+  },
+  "biggestSharedRange": {
+   "name": "Ladji Farani",
+   "areas": 1,
+   "numbersInBlocks": 46100,
+   "digits": 5
+  },
+  "longestCode": {
+   "code": "Èkpè-Kpécomè · 10 000",
+   "length": 21
+  },
+  "longestCodeNotFlagged": {
+   "code": "Èkpè-Kpécomè · 10 000",
+   "length": 21
+  }
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "placeKinds": [
+  "village",
+  "hamlet",
+  "quarter",
+  "neighbourhood",
+  "suburb",
+  "town",
+  "city",
+  "locality"
+ ],
+ "placePoints": 13443,
+ "areasWithBuildings": 12892,
+ "compoundRatio": 0.813,
+ "estCompounds": 4238006,
+ "compoundsPerArea": {
+  "p10": 24,
+  "p50": 114,
+  "p90": 707,
+  "p99": 3691,
+  "max": 19349
+ },
+ "areasByDigits": {
+  "3": 10861,
+  "4": 1941,
+  "5": 90
+ },
+ "compoundShareByDigits": {
+  "3": 0.32,
+  "4": 0.524,
+  "5": 0.156
+ },
+ "largest": [
+  [
+   "Savalou",
+   "city",
+   19349
+  ],
+  [
+   "Ladji Farani",
+   "quarter",
+   14829
+  ],
+  [
+   "Malanville",
+   "city",
+   14146
+  ],
+  [
+   "Tanguieta",
+   "town",
+   13252
+  ],
+  [
+   "Materi",
+   "town",
+   12902
+  ],
+  [
+   "Kouandé",
+   "city",
+   12886
+  ],
+  [
+   "Klouékanmè",
+   "town",
+   12268
+  ],
+  [
+   "Alaga",
+   "neighbourhood",
+   11821
+  ],
+  [
+   "Porto-Novo",
+   "city",
+   11748
+  ],
+  [
+   "Tindji",
+   "village",
+   11504
+  ],
+  [
+   "Lokossa",
+   "city",
+   11154
+  ],
+  [
+   "Hêvié-Kpota",
+   "quarter",
+   10797
+  ]
+ ]
+}

@@ -1,0 +1,25 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\pgfplotstableread{area-sizes.dat}\sizes
+\begin{axis}[width=13cm, height=6.4cm, ybar=0.6pt, bar width=0.34, ymode=log, ymin=1, ymax=12000,
+  log origin=infty, enlarge x limits=0.05,
+  clip=false, xtick={0,...,10}, xticklabels={1--9,10--24,25--49,50--99,100--249,250--499,500--999,1000--2499,2500--4249,4250--9999,10000+},
+  x tick label style={rotate=35, anchor=north east, font=\scriptsize},
+  xlabel={\T{compounds in the area}{concessions dans la zone}}, ylabel={\T{code areas (log scale)}{zones (échelle log.)}},
+  ytick={1,10,100,1000,10000}, yticklabels={1,10,100,{1\T{,}{\,}000},{10\T{,}{\,}000}},
+  axis x line*=bottom, axis y line*=left,
+  legend style={at={(0.99,0.98)}, anchor=north east, draw=none, font=\footnotesize}, legend cell align=left,
+  point meta=explicit, nodes near coords, nodes near coords style={font=\tiny, color=black!75, /pgf/number format/fixed},
+  every node near coord/.append style={yshift=-1pt}]
+  \addplot[fill=green, draw=none] table[x expr=\coordindex, y=four, meta=four] {\sizes};
+  \addlegendentry{\T{area in a four-digit name}{zone d'un nom à quatre chiffres}}
+  \addplot[fill=red, draw=none] table[x expr=\coordindex, y=five, meta=five] {\sizes};
+  \addlegendentry{\T{area in a five-digit name}{zone d'un nom à cinq chiffres}}
+  \draw[black!55, dashed] (axis cs:8.5,1) -- (axis cs:8.5,2500);
+  \node[anchor=west, font=\scriptsize, black!70, align=left] at (axis cs:8.6,500)
+    {\T{block above}{bloc de plus}\\\T{8,500 numbers}{de 8\,500 numéros}};
+\end{axis}
+\end{tikzpicture}
+\end{document}

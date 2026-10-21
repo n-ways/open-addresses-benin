@@ -1,0 +1,118 @@
+{
+ "built": "2026-10-21",
+ "note": "From registry/ and engine/reference/bj_engine.py (tools/paper-evaluation.py).",
+ "codes": 4147741,
+ "duplicateMachineForms": 0,
+ "duplicateRememberedForms": 0,
+ "writtenLength": {
+  "min": 9,
+  "median": 16,
+  "p90": 20,
+  "max": 35,
+  "byLength": {
+   "9": 84,
+   "10": 4211,
+   "11": 22492,
+   "12": 160518,
+   "13": 417231,
+   "14": 525803,
+   "15": 644196,
+   "16": 646643,
+   "17": 508867,
+   "18": 465257,
+   "19": 315359,
+   "20": 264521,
+   "21": 125219,
+   "22": 28129,
+   "23": 7257,
+   "24": 2955,
+   "25": 2925,
+   "26": 1333,
+   "27": 3318,
+   "28": 425,
+   "29": 136,
+   "30": 403,
+   "32": 153,
+   "34": 189,
+   "35": 117
+  }
+ },
+ "plateLengthByCodes": {
+  "1": 84,
+  "2": 9432,
+  "3": 28692,
+  "4": 196796,
+  "5": 465047,
+  "6": 569429,
+  "7": 698042,
+  "8": 541899,
+  "9": 532140,
+  "10": 423377,
+  "11": 319224,
+  "12": 262683,
+  "13": 53556,
+  "14": 28129,
+  "15": 7257,
+  "16": 2955,
+  "17": 2925,
+  "18": 1333,
+  "19": 3318,
+  "20": 425,
+  "21": 136,
+  "22": 403,
+  "24": 153,
+  "26": 189,
+  "27": 117
+ },
+ "decode": {
+  "sampled": 207387,
+  "exact": 207387,
+  "failed": 0
+ },
+ "typos": {
+  "sampledCodes": 41477,
+  "substitution": {
+   "outside every block (refused)": 327485,
+   "another issued code": 1027341,
+   "unissued number in a block": 178409
+  },
+  "transposition": {
+   "unissued number in a block": 16678,
+   "outside every block (refused)": 21844,
+   "another issued code": 68464
+  },
+  "landingOnAnotherCode": {
+   "count": 1095805,
+   "sameArea": 1076145,
+   "distanceM": {
+    "p25": 71,
+    "median": 220,
+    "p75": 719,
+    "p90": 2211
+   }
+  },
+  "machineFormErrors": 1640221,
+  "machineFormErrorsCaught": 1640221
+ },
+ "withoutSpotCode": {
+  "codes": 0,
+  "byCommune": {}
+ },
+ "spotBeyondFrame": {
+  "codes": 158,
+  "byCommune": {
+   "ATH": 101,
+   "OUA": 55,
+   "APL": 2
+  },
+  "maxM": 392.0
+ },
+ "spot": {
+  "sampled": 207380,
+  "failed": 0,
+  "failedExamples": [],
+  "medianM": 1.2,
+  "maxM": 2.12,
+  "p99M": 1.97
+ }
+}
